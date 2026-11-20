@@ -1,0 +1,2886 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAUD Kasih Ibu — Tumbuh Ceria, Berakhlak Mulia & Siap Melangkah</title>
+  <meta name="description" content="Website resmi PAUD Kasih Ibu (paudkasihibu.my.id). Pendidikan anak usia dini yang hangat, aman, dan menyenangkan untuk Kelompok Bermain, TK A, dan TK B." />
+  <meta name="keywords" content="PAUD Kasih Ibu, TK, Kelompok Bermain, Pendidikan Anak Usia Dini, Pendaftaran PAUD, Sekolah Anak" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Pratinjau WhatsApp (W-08) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PAUD Kasih Ibu" />
+  <meta property="og:title" content="PAUD Kasih Ibu — Pendidikan Anak Usia Dini" />
+  <meta property="og:description" content="Lingkungan belajar yang hangat, aman, dan penuh kasih sayang untuk buah hati Anda. Lihat program, fasilitas, dan info pendaftaran." />
+  <meta property="og:url" content="https://paudkasihibu.my.id" />
+  <meta property="og:image" content="https://placehold.co/1200x630/1D5B8C/FFFFFF?text=PAUD+Kasih+Ibu" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Nunito (Sesuai PRD Bagian 5) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            warmblue: {
+              50: '#F4F9FD',
+              100: '#E5F1FA',
+              200: '#C6E0F4',
+              300: '#96C6EA',
+              400: '#5CA5DC',
+              500: '#3584C2',
+              600: '#1D5B8C', /* Warna Utama Biru Hangat */
+              700: '#174971',
+              800: '#143C5D',
+              900: '#12324D',
+            },
+            honey: {
+              50: '#FFF9EB',
+              100: '#FEEFC7',
+              400: '#F5A638',
+              500: '#E88D2A', /* Aksen Hangat untuk Tombol Daftar */
+              600: '#CC7318',
+            },
+            ink: {
+              900: '#172B3A',
+              700: '#334E63',
+              500: '#567085',
+            }
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -8px rgba(29, 91, 140, 0.10)',
+            'card': '0 4px 20px -2px rgba(23, 43, 58, 0.06)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Supabase JS SDK v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Data Terstruktur Sekolah Schema.org JSON-LD (W-08) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Preschool",
+    "name": "PAUD Kasih Ibu",
+    "url": "https://paudkasihibu.my.id",
+    "telephone": "+62-812-3456-7890",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Melati Indah No. 18, Kel. Sukamaju",
+      "addressLocality": "Caringin",
+      "addressRegion": "Jawa Barat",
+      "postalCode": "16730",
+      "addressCountry": "ID"
+    },
+    "openingHours": "Mo-Fr 07:30-15:00"
+  }
+  </script>
+
+  <style>
+    /* Pengaturan tipografi dasar & aksesibilitas (minimal 16px di ponsel) */
+    html {
+      font-size: 16px;
+      color: #172B3A;
+      background-color: #F7FAFC;
+    }
+
+    body {
+      font-family: 'Nunito', system-ui, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      letter-spacing: -0.015em;
+    }
+
+    /* Fokus keyboard yang jelas untuk aksesibilitas */
+    :focus-visible {
+      outline: 3px solid #3584C2;
+      outline-offset: 2px;
+      border-radius: 0.5rem;
+    }
+
+    /* Menghormati pengaturan pengguna yang mematikan animasi (PRD Bagian 5) */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Pola halus latar biru hangat */
+    .bg-warm-pattern {
+      background-color: #F4F9FD;
+      background-image: radial-gradient(#C6E0F4 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Animasi muncul halus */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-enter {
+      animation: fadeSlideIn 0.28s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#F7FAFC] text-ink-900 antialiased selection:bg-warmblue-200 selection:text-warmblue-900">
+
+  <!-- Spanduk Status Pendaftaran Dinamis (Dikelola Admin di Supabase) -->
+  <div id="top-announcement-bar" class="bg-warmblue-700 text-white text-sm py-2.5 px-4 transition-colors">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <span id="reg-status-dot" class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
+        <p id="reg-banner-text" class="font-semibold text-white/95">
+          Pendaftaran Peserta Didik Baru Tahun Ajaran 2026/2027 Telah Dibuka!
+        </p>
+      </div>
+      <div class="flex items-center gap-4 text-xs sm:text-sm">
+        <a href="#/daftar" class="underline decoration-warmblue-300 underline-offset-4 hover:text-honey-100 font-bold">
+          Info Pendaftaran
+        </a>
+        <span class="text-warmblue-300">|</span>
+        <a href="#/admin" class="text-warmblue-100 hover:text-white flex items-center gap-1 font-medium" title="Panel Admin CMS">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Navigasi Utama (Responsif Mobile-First, Tombol Daftar & Login Portal Selalu Terlihat) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-warmblue-100 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-18 py-3 gap-2">
+
+        <!-- Logo Sementara Buatan Sendiri (Ikon Buku & Bintang + Nama Sekolah, PRD Bagian 5) -->
+        <a href="#/" class="flex items-center gap-3 group shrink-0 min-h-[44px]" aria-label="Beranda PAUD Kasih Ibu">
+          <div class="w-11 h-11 rounded-2xl bg-warmblue-600 text-white flex items-center justify-center shadow-sm group-hover:bg-warmblue-700 transition-colors">
+            <svg class="w-7 h-7" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Ikon Buku Terbuka Hangat -->
+              <path d="M6 11C6 9.89543 6.89543 9 8 9H15.5C16.8807 9 18 10.1193 18 11.5V27C18 25.8954 17.1046 25 16 25H8C6.89543 25 6 24.1046 6 23V11Z" fill="#E5F1FA"/>
+              <path d="M30 11C30 9.89543 29.1046 9 28 9H20.5C19.1193 9 18 10.1193 18 11.5V27C18 25.8954 18.8954 25 20 25H28C29.1046 25 30 24.1046 30 23V11Z" fill="#FFFFFF"/>
+              <!-- Bintang Harapan di Atas Buku -->
+              <path d="M18 3L19.45 6.1L22.85 6.55L20.35 8.9L20.98 12.25L18 10.6L15.02 12.25L15.65 8.9L13.15 6.55L16.55 6.1L18 3Z" fill="#F5A638"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <span class="font-display font-extrabold text-lg sm:text-xl text-warmblue-800 block">PAUD Kasih Ibu</span>
+            <span class="text-xs text-ink-500 font-semibold hidden sm:block">Kelompok Bermain & Taman Kanak-Kanak</span>
+          </div>
+        </a>
+
+        <!-- Navigasi Desktop -->
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Navigasi Utama">
+          <a href="#/" data-nav="/" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">Beranda</a>
+          <a href="#/tentang" data-nav="/tentang" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">Tentang</a>
+          <a href="#/program" data-nav="/program" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">Program</a>
+          <a href="#/guru" data-nav="/guru" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">Guru</a>
+          <a href="#/fasilitas" data-nav="/fasilitas" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">Fasilitas</a>
+          <a href="#/galeri" data-nav="/galeri" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">Galeri</a>
+          <a href="#/faq" data-nav="/faq" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">FAQ</a>
+          <a href="#/kontak" data-nav="/kontak" class="nav-link px-3 py-2 rounded-xl text-sm font-bold text-ink-700 hover:bg-warmblue-50 hover:text-warmblue-700 transition-colors">Kontak</a>
+        </nav>
+
+        <!-- Dua Tombol Selalu Terlihat di Ponsel & Desktop: Daftar & Login Portal (PRD Bagian 3) -->
+        <div class="flex items-center gap-2">
+          <a href="#/daftar" class="min-h-[44px] px-3.5 sm:px-5 py-2.5 rounded-xl bg-honey-500 hover:bg-honey-600 text-white font-display font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center">
+            Daftar
+          </a>
+          <button type="button" onclick="openPortalModal()" class="min-h-[44px] px-3 sm:px-4 py-2.5 rounded-xl bg-warmblue-50 hover:bg-warmblue-100 text-warmblue-700 border border-warmblue-200 font-display font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+            </svg>
+            <span>Login Portal</span>
+          </button>
+
+          <!-- Tombol Hamburger untuk Ponsel & Tablet -->
+          <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Buka menu navigasi" class="lg:hidden min-h-[44px] min-w-[44px] p-2.5 rounded-xl text-warmblue-800 hover:bg-warmblue-50 border border-warmblue-100 flex items-center justify-center">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Navigasi Ponsel -->
+    <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-warmblue-100 px-4 pt-3 pb-6 shadow-lg">
+      <nav class="grid grid-cols-2 gap-2" aria-label="Navigasi Ponsel">
+        <a href="#/" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">Beranda</a>
+        <a href="#/tentang" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">Tentang Kami</a>
+        <a href="#/program" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">Program Belajar</a>
+        <a href="#/guru" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">Guru & Staf</a>
+        <a href="#/fasilitas" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">Fasilitas</a>
+        <a href="#/galeri" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">Galeri Kegiatan</a>
+        <a href="#/daftar" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-honey-600 bg-honey-50 hover:bg-honey-100 flex items-center">Pendaftaran</a>
+        <a href="#/faq" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">FAQ</a>
+        <a href="#/kontak" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-ink-800 hover:bg-warmblue-50 flex items-center">Kontak & Peta</a>
+        <a href="#/admin" onclick="closeMobileMenu()" class="min-h-[44px] px-4 py-3 rounded-xl font-bold text-warmblue-700 bg-warmblue-50 hover:bg-warmblue-100 flex items-center">Admin CMS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten Utama Dinamis -->
+  <main id="app-root" class="flex-1">
+    <!-- Dirender oleh JavaScript sesuai rute aktif -->
+  </main>
+
+  <!-- Footer Sekolah -->
+  <footer class="bg-warmblue-900 text-warmblue-100 mt-16 border-t border-warmblue-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Kolom 1: Identitas Sekolah -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-warmblue-600 text-white flex items-center justify-center">
+              <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                <path d="M6 11C6 9.89543 6.89543 9 8 9H15.5C16.8807 9 18 10.1193 18 11.5V27C18 25.8954 17.1046 25 16 25H8C6.89543 25 6 24.1046 6 23V11Z" fill="#E5F1FA"/>
+                <path d="M30 11C30 9.89543 29.1046 9 28 9H20.5C19.1193 9 18 10.1193 18 11.5V27C18 25.8954 18.8954 25 20 25H28C29.1046 25 30 24.1046 30 23V11Z" fill="#FFFFFF"/>
+                <path d="M18 3L19.45 6.1L22.85 6.55L20.35 8.9L20.98 12.25L18 10.6L15.02 12.25L15.65 8.9L13.15 6.55L16.55 6.1L18 3Z" fill="#F5A638"/>
+              </svg>
+            </div>
+            <span class="font-display font-extrabold text-xl text-white">PAUD Kasih Ibu</span>
+          </div>
+          <p class="text-sm text-warmblue-200 leading-relaxed">
+            Mendampingi langkah pertama buah hati dengan kasih sayang, permainan edukatif, dan pembentukan karakter mulia sejak usia dini.
+          </p>
+          <div class="pt-2">
+            <button type="button" onclick="openPortalModal()" class="min-h-[44px] px-4 py-2.5 rounded-xl bg-warmblue-700 hover:bg-warmblue-600 text-white font-display font-bold text-sm inline-flex items-center gap-2 border border-warmblue-500/40 transition-colors">
+              <span>Login Portal Orang Tua</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Navigasi Cepat -->
+        <div>
+          <h3 class="font-display font-bold text-white text-base mb-4">Jelajahi Sekolah</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#/tentang" class="hover:text-white transition-colors">Tentang Kami & Legalitas</a></li>
+            <li><a href="#/program" class="hover:text-white transition-colors">Program Kelompok Usia</a></li>
+            <li><a href="#/guru" class="hover:text-white transition-colors">Profil Guru & Staf</a></li>
+            <li><a href="#/fasilitas" class="hover:text-white transition-colors">Fasilitas & Keamanan</a></li>
+            <li><a href="#/galeri" class="hover:text-white transition-colors">Galeri Kegiatan</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Informasi Pendaftaran -->
+        <div>
+          <h3 class="font-display font-bold text-white text-base mb-4">Pendaftaran & Bantuan</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#/daftar" class="hover:text-white transition-colors">Alur & Formulir Pendaftaran</a></li>
+            <li><a href="#/faq" class="hover:text-white transition-colors">Pertanyaan Umum (FAQ)</a></li>
+            <li><a href="#/kontak" class="hover:text-white transition-colors">Lokasi & Jam Operasional</a></li>
+            <li><a href="#/admin" class="hover:text-white transition-colors">Panel Admin (Supabase CMS)</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 4: Kontak Langsung -->
+        <div class="space-y-3 text-sm">
+          <h3 class="font-display font-bold text-white text-base mb-4">Hubungi Kami</h3>
+          <p id="footer-address" class="text-warmblue-200 leading-relaxed">
+            Jl. Melati Indah No. 18, Kel. Sukamaju, Kec. Caringin, Kab. Bogor, Jawa Barat 16730
+          </p>
+          <p class="text-warmblue-200">
+            Telepon: <span id="footer-phone" class="text-white font-semibold">(021) 8765-4321</span>
+          </p>
+          <p id="footer-hours" class="text-warmblue-200">
+            Senin – Jumat, 07.30 – 15.00 WIB
+          </p>
+          <div class="pt-2">
+            <a id="footer-wa-link" href="#" target="_blank" rel="noopener noreferrer" class="min-h-[44px] px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm inline-flex items-center gap-2 transition-colors">
+              <span>Chat WhatsApp Admin</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-warmblue-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-warmblue-300">
+        <p>&copy; 2026 PAUD Kasih Ibu (paudkasihibu.my.id). Hak cipta dilindungi undang-undang.</p>
+        <p>Dikelola dengan Supabase & Vercel • Kepatuhan Privasi UU PDP No. 27 Tahun 2022</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tombol WhatsApp Mengambang di Semua Halaman (W-03) -->
+  <a id="floating-wa-btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Hubungi PAUD Kasih Ibu lewat WhatsApp" class="fixed bottom-5 right-5 z-40 min-h-[52px] px-4 sm:px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all flex items-center gap-2.5 group">
+    <svg class="w-6 h-6 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+    </svg>
+    <span class="font-display font-bold text-sm hidden sm:inline">Tanya Pendaftaran</span>
+  </a>
+
+  <!-- Modal Lightbox Galeri Foto (W-06) -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-ink-900/90 backdrop-blur-xs flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Pratinjau Foto Kegiatan">
+    <div class="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between px-5 py-3.5 border-b border-warmblue-100">
+        <div>
+          <span id="lightbox-category" class="text-xs font-bold px-2.5 py-1 rounded-full bg-warmblue-100 text-warmblue-700">Kegiatan</span>
+          <h3 id="lightbox-title" class="font-display font-bold text-base sm:text-lg text-ink-900 mt-1">Judul Foto</h3>
+        </div>
+        <button type="button" onclick="closeLightbox()" aria-label="Tutup pratinjau foto" class="min-h-[44px] min-w-[44px] rounded-xl bg-warmblue-50 hover:bg-warmblue-100 text-ink-800 flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="relative bg-warmblue-900/5 flex items-center justify-center max-h-[70vh] overflow-hidden">
+        <img id="lightbox-img" src="" alt="" class="max-h-[68vh] w-auto object-contain" />
+        <button type="button" onclick="navigateLightbox(-1)" aria-label="Foto sebelumnya" class="absolute left-3 min-h-[44px] min-w-[44px] rounded-full bg-white/90 hover:bg-white text-ink-900 shadow-md flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button type="button" onclick="navigateLightbox(1)" aria-label="Foto berikutnya" class="absolute right-3 min-h-[44px] min-w-[44px] rounded-full bg-white/90 hover:bg-white text-ink-900 shadow-md flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="px-5 py-3 bg-warmblue-50/70 text-sm text-ink-700 flex items-center justify-between">
+        <p id="lightbox-desc">Deskripsi foto kegiatan siswa.</p>
+        <span id="lightbox-counter" class="text-xs font-bold text-warmblue-700 shrink-0 ml-4">1 / 6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Portal Akademik (W-04) -->
+  <div id="portal-modal" class="fixed inset-0 z-50 hidden bg-ink-900/70 backdrop-blur-xs flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="portal-modal-title">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-warmblue-100">
+      <div class="w-12 h-12 rounded-2xl bg-warmblue-100 text-warmblue-700 flex items-center justify-center mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      </div>
+      <h3 id="portal-modal-title" class="font-display font-extrabold text-xl text-ink-900">Menuju Portal Akademik</h3>
+      <p class="text-sm text-ink-700 mt-2 leading-relaxed">
+        Portal Orang Tua & Guru berada di subdomain terpisah (<span class="font-bold text-warmblue-700">portal.paudkasihibu.my.id</span>) untuk menjaga keamanan data perkembangan peserta didik.
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a id="portal-external-anchor" href="https://portal.paudkasihibu.my.id" target="_blank" rel="noopener noreferrer" class="min-h-[44px] flex-1 px-4 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm text-center flex items-center justify-center">
+          Buka Portal Sekarang
+        </a>
+        <button type="button" onclick="closePortalModal()" class="min-h-[44px] px-4 py-2.5 rounded-xl bg-warmblue-50 hover:bg-warmblue-100 text-ink-800 font-bold text-sm">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notifikasi Toast Pengganti alert() -->
+  <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+  <script>
+    /**
+     * ============================================================================
+     * KONFIGURASI SUPABASE & VERCEL (PAUD KASIH IBU)
+     * ============================================================================
+     * Untuk deployment di Vercel:
+     * Anda dapat langsung mengisi SUPABASE_URL dan SUPABASE_ANON_KEY di bawah ini,
+     * atau menyambungkannya melalui Panel Admin (/admin) secara langsung di browser.
+     */
+    const ENV_SUPABASE_URL = "";
+    const ENV_SUPABASE_ANON_KEY = "";
+
+    // Helper gambar fallback SVG hangat agar tidak pernah ada gambar pecah
+    function getFallbackImage(label = "PAUD Kasih Ibu") {
+      const encoded = encodeURIComponent(label);
+      return `https://placehold.co/800x560/E5F1FA/1D5B8C?text=${encoded}`;
+    }
+
+    /**
+     * DATA AWAL / CONTOH (Sesuai PRD Bagian 3 & Bagian 5)
+     * Semua data contoh ditandai dengan isExample: true sehingga admin dapat
+     * memantau data mana saja yang perlu diganti sebelum rilis publik.
+     */
+    const DEFAULT_STATE = {
+      settings: {
+        id: 1,
+        schoolName: "PAUD Kasih Ibu",
+        tagline: "Tumbuh Ceria, Berakhlak Mulia, dan Siap Melangkah",
+        academicYear: "2026/2027",
+        registrationOpen: true,
+        registrationBannerText: "Pendaftaran Peserta Didik Baru Tahun Ajaran 2026/2027 Telah Dibuka!",
+        whatsappNumber: "6281234567890",
+        whatsappDefaultMsg: "Halo, saya ingin bertanya tentang pendaftaran di PAUD Kasih Ibu",
+        phoneDisplay: "(021) 8765-4321",
+        email: "info@paudkasihibu.my.id",
+        address: "Jl. Melati Indah No. 18, Kel. Sukamaju, Kec. Caringin, Kab. Bogor, Jawa Barat 16730",
+        operationalHours: "Senin – Jumat, 07.30 – 15.00 WIB",
+        googleFormEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfD_ContohFormulirPAUD/viewform?embedded=true",
+        googleFormDirectUrl: "https://docs.google.com/forms",
+        googleMapsEmbedUrl: "https://www.google.com/maps?q=-6.7234,106.7912&z=15&output=embed",
+        googleMapsRouteUrl: "https://maps.google.com/?q=-6.7234,106.7912",
+        portalUrl: "https://portal.paudkasihibu.my.id",
+        maintenanceMode: false,
+        npsn: "69981234 (Contoh)",
+        skOperasional: "421.1/108-PAUD/DISDIK/2021 (Contoh)",
+        accreditation: "Terakreditasi B — BAN PAUD & PNF (Contoh)"
+      },
+      programs: [
+        {
+          id: "prog-1",
+          name: "Kelompok Bermain (KB)",
+          ageRange: "Usia 2 – 3 Tahun",
+          schedule: "Senin, Rabu, Jumat • 08.00 – 10.30 WIB",
+          description: "Fokus pada stimulasi sensorik, motorik halus dan kasar, kemandirian dasar, serta sosialisasi awal dalam suasana bermain yang penuh kehangatan.",
+          highlights: ["Bermain sensori & motorik", "Pengenalan lagu & cerita", "Pembiasaan toilet training & makan mandiri"],
+          registrationFee: "Rp 450.000 (Contoh)",
+          monthlyFee: "Rp 225.000 / bulan (Contoh)",
+          isExample: true
+        },
+        {
+          id: "prog-2",
+          name: "Taman Kanak-Kanak A (TK A)",
+          ageRange: "Usia 4 – 5 Tahun",
+          schedule: "Senin – Jumat • 08.00 – 11.00 WIB",
+          description: "Mengembangkan rasa ingin tahu, keberanian berkomunikasi, kreativitas seni, dan nilai budi pekerti melalui pembelajaran tematik berbasis proyek sederhana.",
+          highlights: ["Eksplorasi alam & sains sederhana", "Pengenalan pra-literasi & pra-numerasi", "Seni musik, gerak, dan mewarnai"],
+          registrationFee: "Rp 650.000 (Contoh)",
+          monthlyFee: "Rp 275.000 / bulan (Contoh)",
+          isExample: true
+        },
+        {
+          id: "prog-3",
+          name: "Taman Kanak-Kanak B (TK B)",
+          ageRange: "Usia 5 – 6 Tahun",
+          schedule: "Senin – Jumat • 08.00 – 11.30 WIB",
+          description: "Mempersiapkan kematangan emosi, kemandirian, kemampuan berpikir kritis, serta kesiapan transisi ke jenjang Sekolah Dasar tanpa tekanan akademik berlebihan.",
+          highlights: ["Kesiapan masuk SD menyenangkan", "Proyek kolaborasi kelompok kecil", "Penguatan karakter & kepemimpinan anak"],
+          registrationFee: "Rp 700.000 (Contoh)",
+          monthlyFee: "Rp 300.000 / bulan (Contoh)",
+          isExample: true
+        }
+      ],
+      dailySchedule: [
+        { time: "07.30 – 08.00", activity: "Penyambutan hangat di gerbang & bermain bebas terbimbing" },
+        { time: "08.00 – 08.30", activity: "Lingkaran pagi (Morning Circle), doa bersama, dan senam ceria" },
+        { time: "08.30 – 09.45", activity: "Kegiatan inti sentra (Balok, Bahan Alam, Seni, dan Peran)" },
+        { time: "09.45 – 10.15", activity: "Cuci tangan, makan bekal sehat bersama, dan bermain di luar ruangan" },
+        { time: "10.15 – 11.00", activity: "Bercerita interaktif, refleksi hari ini, dan persiapan pulang" }
+      ],
+      extracurriculars: [
+        { name: "Melukis & Kriya Kreatif", day: "Selasa", desc: "Melatih imajinasi dan koordinasi tangan menggunakan cat air aman anak." },
+        { name: "Tari Kreasi & Gerak Lagu", day: "Kamis", desc: "Menumbuhkan rasa percaya diri, kelenturan tubuh, dan apresiasi budaya." },
+        { name: "Berkebun Cilik", day: "Jumat", desc: "Mengenal tanaman, menyiram bunga, dan mencintai lingkungan sejak dini." },
+        { name: "Bahasa Inggris Dasar (Fun English)", day: "Rabu", desc: "Pengenalan kosakata sehari-hari lewat lagu dan permainan interaktif." }
+      ],
+      teachers: [
+        {
+          id: "guru-1",
+          name: "Ibu Ratna Sari, S.Pd.AUD",
+          role: "Kepala Sekolah PAUD Kasih Ibu",
+          quote: "Setiap anak adalah bintang yang bersinar dengan caranya sendiri; tugas kita adalah menjaga cahayanya tetap hangat.",
+          photoUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
+          isExample: true
+        },
+        {
+          id: "guru-2",
+          name: "Ibu Nisa Rahmawati, S.Pd.",
+          role: "Wali Kelas TK B",
+          quote: "Belajar paling bermakna terjadi ketika hati anak merasa aman, dihargai, dan gembira.",
+          photoUrl: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=500&q=80",
+          isExample: true
+        },
+        {
+          id: "guru-3",
+          name: "Ibu Dewi Lestari, S.Psi.",
+          role: "Wali Kelas TK A & Pendamping Tumbuh Kembang",
+          quote: "Mendengarkan cerita kecil anak hari ini adalah pondasi kepercayaan diri mereka di masa depan.",
+          photoUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
+          isExample: true
+        },
+        {
+          id: "guru-4",
+          name: "Ibu Siti Aminah, A.Ma.",
+          role: "Guru Kelompok Bermain (KB)",
+          quote: "Melalui permainan sederhana, tangan-tangan mungil belajar berbagi, sabar, dan mandiri.",
+          photoUrl: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=500&q=80",
+          isExample: true
+        }
+      ],
+      facilities: [
+        {
+          id: "fas-1",
+          title: "Ruang Kelas Terang & Sirkulasi Udara Baik",
+          category: "Ruang Belajar",
+          description: "Dilengkapi pencahayaan alami, meja-kursi ergonomis sesuai tinggi anak, serta sudut baca yang nyaman.",
+          imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+          isExample: true
+        },
+        {
+          id: "fas-2",
+          title: "Area Bermain Luar Ruangan Berpeneduh",
+          category: "Area Bermain",
+          description: "Perosotan, ayunan, dan papan keseimbangan dengan alas rumput sintetis empuk untuk keamanan aktivitas motorik.",
+          imageUrl: "https://images.unsplash.com/photo-1566454825481-4e48f80aa4d7?auto=format&fit=crop&w=800&q=80",
+          isExample: true
+        },
+        {
+          id: "fas-3",
+          title: "Pojok Literasi & Alat Permainan Edukatif (APE)",
+          category: "Sarana Edukasi",
+          description: "Koleksi buku cerita bergambar pilihan dan balok kayu bersertifikat SNI bebas racun (non-toxic).",
+          imageUrl: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80",
+          isExample: true
+        },
+        {
+          id: "fas-4",
+          title: "Keamanan Terpadu & Toilet Ramah Anak",
+          category: "Keamanan & Kebersihan",
+          description: "Gerbang terkunci selama jam belajar, CCTV area bersama, wastafel rendah, dan toilet bersih khusus ukuran anak.",
+          imageUrl: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80",
+          isExample: true
+        }
+      ],
+      gallery: [
+        {
+          id: "gal-1",
+          title: "Kegiatan Melukis Bersama di Sentra Seni",
+          category: "Seni & Kreativitas",
+          description: "Anak-anak mengekspresikan imajinasi warna menggunakan cat air ramah anak.",
+          imageUrl: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80",
+          isExample: true
+        },
+        {
+          id: "gal-2",
+          title: "Bermain Balok & Membangun Menara",
+          category: "Sentra Balok",
+          description: "Melatih kerja sama tim, keseimbangan, dan pemecahan masalah sejak usia dini.",
+          imageUrl: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=80",
+          isExample: true
+        },
+        {
+          id: "gal-3",
+          title: "Membaca Buku Cerita di Pojok Literasi",
+          category: "Literasi Dini",
+          description: "Menumbuhkan minat baca dan kemampuan menyimak cerita bersama ibu guru.",
+          imageUrl: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80",
+          isExample: true
+        },
+        {
+          id: "gal-4",
+          title: "Eksplorasi Alam & Menyiram Tanaman",
+          category: "Kegiatan Alam",
+          description: "Mengenalkan tanggung jawab merawat makhluk hidup di kebun kecil sekolah.",
+          imageUrl: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=900&q=80",
+          isExample: true
+        },
+        {
+          id: "gal-5",
+          title: "Senam Pagi & Permainan Motorik",
+          category: "Olahraga & Gerak",
+          description: "Mengawali pagi dengan gerakan ceria agar tubuh bugar dan semangat belajar.",
+          imageUrl: "https://images.unsplash.com/photo-1540479859555-17af45c78602?auto=format&fit=crop&w=900&q=80",
+          isExample: true
+        },
+        {
+          id: "gal-6",
+          title: "Makan Bekal Sehat Bersama Teman",
+          category: "Pembiasaan Baik",
+          description: "Membiasakan cuci tangan, berdoa sebelum makan, dan menyukai sayur serta buah.",
+          imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80",
+          isExample: true
+        }
+      ],
+      testimonials: [
+        {
+          id: "testi-1",
+          parentName: "Bunda R*** (Orang Tua Ananda K***, TK B)",
+          quote: "Sejak bersekolah di PAUD Kasih Ibu, anak kami jauh lebih percaya diri bercerita di rumah dan sangat antusias berangkat sekolah setiap pagi.",
+          consentNote: "Izin tertulis orang tua • Nama disamarkan (W-11)",
+          isExample: true
+        },
+        {
+          id: "testi-2",
+          parentName: "Ayah D*** (Orang Tua Ananda A***, TK A)",
+          quote: "Guru-gurunya sangat sabar dan komunikatif. Kami selalu mendapat kabar perkembangan ananda dengan bahasa yang hangat dan menenangkan.",
+          consentNote: "Izin tertulis orang tua • Nama disamarkan (W-11)",
+          isExample: true
+        },
+        {
+          id: "testi-3",
+          parentName: "Bunda M*** (Orang Tua Ananda Z***, Kelompok Bermain)",
+          quote: "Lingkungannya bersih, aman, dan tidak memaksa anak calistung secara kaku. Anak belajar sambil bermain dengan gembira.",
+          consentNote: "Izin tertulis orang tua • Nama disamarkan (W-11)",
+          isExample: true
+        }
+      ],
+      faqs: [
+        {
+          id: "faq-1",
+          question: "Berapa usia minimal untuk mendaftar di PAUD Kasih Ibu?",
+          answer: "Kami menerima peserta didik mulai usia 2 tahun untuk program Kelompok Bermain (KB), usia 4–5 tahun untuk TK A, dan usia 5–6 tahun untuk TK B.",
+          isExample: true
+        },
+        {
+          id: "faq-2",
+          question: "Apakah anak harus sudah bisa membaca dan menulis sebelum masuk TK?",
+          answer: "Tidak perlu. Di PAUD Kasih Ibu, kemampuan pra-literasi dan pra-numerasi dikenalkan secara bertahap melalui permainan edukatif, cerita, dan aktivitas motorik sesuai tahap perkembangan anak.",
+          isExample: true
+        },
+        {
+          id: "faq-3",
+          question: "Bagaimana sistem keamanan dan penjemputan siswa di sekolah?",
+          answer: "Gerbang sekolah selalu terkunci selama jam kegiatan belajar berlangsung. Penjemputan hanya diperbolehkan oleh orang tua atau wali yang terdaftar dalam kartu penjemput resmi.",
+          isExample: true
+        },
+        {
+          id: "faq-4",
+          question: "Apakah orang tua bisa berkunjung dan melihat ruang kelas sebelum mendaftar?",
+          answer: "Tentu saja! Orang tua dipersilakan membuat janji kunjungan sekolah melalui tombol WhatsApp agar dapat berkeliling melihat fasilitas dan berkonsultasi langsung dengan Kepala Sekolah.",
+          isExample: true
+        },
+        {
+          id: "faq-5",
+          question: "Bagaimana cara mengakses Portal Orang Tua?",
+          answer: "Setelah ananda resmi terdaftar sebagai siswa, orang tua akan mendapatkan akun untuk masuk ke portal.paudkasihibu.my.id melalui tombol Login Portal di bagian atas halaman.",
+          isExample: true
+        }
+      ]
+    };
+
+    // State global aplikasi
+    let appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+    let currentRoute = "/";
+    let activeGalleryFilter = "Semua";
+    let currentLightboxIndex = 0;
+    let filteredGalleryItems = [];
+
+    // State koneksi Supabase
+    let supabaseClient = null;
+    let supabaseConfig = {
+      url: ENV_SUPABASE_URL,
+      anonKey: ENV_SUPABASE_ANON_KEY,
+      connected: false
+    };
+    let adminSession = {
+      authenticated: false,
+      email: "",
+      isDemoMode: false
+    };
+    let activeAdminTab = "settings";
+
+    /**
+     * ============================================================================
+     * LAYANAN SUPABASE (AUTH & POSTGRESQL DATABASE)
+     * ============================================================================
+     */
+    function initSupabase(url, anonKey) {
+      if (!url || !anonKey || !window.supabase) {
+        supabaseClient = null;
+        supabaseConfig.connected = false;
+        return false;
+      }
+      try {
+        supabaseClient = window.supabase.createClient(url.trim(), anonKey.trim());
+        supabaseConfig = { url: url.trim(), anonKey: anonKey.trim(), connected: true };
+        return true;
+      } catch (err) {
+        console.error("Gagal menginisialisasi Supabase:", err);
+        supabaseClient = null;
+        supabaseConfig.connected = false;
+        return false;
+      }
+    }
+
+    // Muat data dari Supabase jika kredensial tersedia
+    async function syncFromSupabase() {
+      if (!supabaseClient) return;
+      try {
+        const [settingsRes, teachersRes, programsRes, facilitiesRes, galleryRes, faqsRes, testiRes] = await Promise.all([
+          supabaseClient.from("school_settings").select("*").eq("id", 1).maybeSingle(),
+          supabaseClient.from("teachers").select("*").order("created_at", { ascending: true }),
+          supabaseClient.from("programs").select("*").order("created_at", { ascending: true }),
+          supabaseClient.from("facilities").select("*").order("created_at", { ascending: true }),
+          supabaseClient.from("gallery").select("*").order("created_at", { ascending: false }),
+          supabaseClient.from("faqs").select("*").order("created_at", { ascending: true }),
+          supabaseClient.from("testimonials").select("*").order("created_at", { ascending: true })
+        ]);
+
+        if (settingsRes.data) {
+          appState.settings = { ...appState.settings, ...mapSettingsFromDb(settingsRes.data) };
+        }
+        if (teachersRes.data && teachersRes.data.length > 0) {
+          appState.teachers = teachersRes.data.map(t => ({
+            id: t.id,
+            name: t.name,
+            role: t.role,
+            quote: t.quote,
+            photoUrl: t.photo_url || getFallbackImage(t.name),
+            isExample: Boolean(t.is_example)
+          }));
+        }
+        if (programsRes.data && programsRes.data.length > 0) {
+          appState.programs = programsRes.data.map(p => ({
+            id: p.id,
+            name: p.name,
+            ageRange: p.age_range,
+            schedule: p.schedule,
+            description: p.description,
+            highlights: Array.isArray(p.highlights) ? p.highlights : [],
+            registrationFee: p.registration_fee,
+            monthlyFee: p.monthly_fee,
+            isExample: Boolean(p.is_example)
+          }));
+        }
+        if (facilitiesRes.data && facilitiesRes.data.length > 0) {
+          appState.facilities = facilitiesRes.data.map(f => ({
+            id: f.id,
+            title: f.title,
+            category: f.category,
+            description: f.description,
+            imageUrl: f.image_url || getFallbackImage(f.title),
+            isExample: Boolean(f.is_example)
+          }));
+        }
+        if (galleryRes.data && galleryRes.data.length > 0) {
+          appState.gallery = galleryRes.data.map(g => ({
+            id: g.id,
+            title: g.title,
+            category: g.category,
+            description: g.description,
+            imageUrl: g.image_url || getFallbackImage(g.title),
+            isExample: Boolean(g.is_example)
+          }));
+        }
+        if (faqsRes.data && faqsRes.data.length > 0) {
+          appState.faqs = faqsRes.data.map(q => ({
+            id: q.id,
+            question: q.question,
+            answer: q.answer,
+            isExample: Boolean(q.is_example)
+          }));
+        }
+        if (testiRes.data && testiRes.data.length > 0) {
+          appState.testimonials = testiRes.data.map(tm => ({
+            id: tm.id,
+            parentName: tm.parent_name,
+            quote: tm.quote,
+            consentNote: tm.consent_note || "Izin tertulis orang tua • Nama disamarkan",
+            isExample: Boolean(tm.is_example)
+          }));
+        }
+
+        updateGlobalChrome();
+        renderRoute();
+        showToast("Data berhasil disinkronkan dari Supabase.", "success");
+      } catch (err) {
+        console.warn("Menggunakan data bawaan (tabel Supabase belum terisi atau offline):", err);
+      }
+    }
+
+    function mapSettingsFromDb(row) {
+      return {
+        schoolName: row.school_name ?? appState.settings.schoolName,
+        tagline: row.tagline ?? appState.settings.tagline,
+        academicYear: row.academic_year ?? appState.settings.academicYear,
+        registrationOpen: row.registration_open ?? appState.settings.registrationOpen,
+        registrationBannerText: row.registration_banner_text ?? appState.settings.registrationBannerText,
+        whatsappNumber: row.whatsapp_number ?? appState.settings.whatsappNumber,
+        whatsappDefaultMsg: row.whatsapp_default_msg ?? appState.settings.whatsappDefaultMsg,
+        phoneDisplay: row.phone_display ?? appState.settings.phoneDisplay,
+        email: row.email ?? appState.settings.email,
+        address: row.address ?? appState.settings.address,
+        operationalHours: row.operational_hours ?? appState.settings.operationalHours,
+        googleFormEmbedUrl: row.google_form_embed_url ?? appState.settings.googleFormEmbedUrl,
+        googleFormDirectUrl: row.google_form_direct_url ?? appState.settings.googleFormDirectUrl,
+        googleMapsEmbedUrl: row.google_maps_embed_url ?? appState.settings.googleMapsEmbedUrl,
+        googleMapsRouteUrl: row.google_maps_route_url ?? appState.settings.googleMapsRouteUrl,
+        portalUrl: row.portal_url ?? appState.settings.portalUrl,
+        maintenanceMode: row.maintenance_mode ?? appState.settings.maintenanceMode
+      };
+    }
+
+    function mapSettingsToDb(s) {
+      return {
+        id: 1,
+        school_name: s.schoolName,
+        tagline: s.tagline,
+        academic_year: s.academicYear,
+        registration_open: s.registrationOpen,
+        registration_banner_text: s.registrationBannerText,
+        whatsapp_number: s.whatsappNumber,
+        whatsapp_default_msg: s.whatsappDefaultMsg,
+        phone_display: s.phoneDisplay,
+        email: s.email,
+        address: s.address,
+        operational_hours: s.operationalHours,
+        google_form_embed_url: s.googleFormEmbedUrl,
+        google_form_direct_url: s.googleFormDirectUrl,
+        google_maps_embed_url: s.googleMapsEmbedUrl,
+        google_maps_route_url: s.googleMapsRouteUrl,
+        portal_url: s.portalUrl,
+        maintenance_mode: s.maintenanceMode
+      };
+    }
+
+    /**
+     * ============================================================================
+     * UTILITAS UMUM & NOTIFIKASI TOAST
+     * ============================================================================
+     */
+    function getWhatsAppUrl(customMessage = null) {
+      const num = (appState.settings.whatsappNumber || "6281234567890").replace(/[^0-9]/g, "");
+      const msg = encodeURIComponent(customMessage || appState.settings.whatsappDefaultMsg);
+      return `https://wa.me/${num}?text=${msg}`;
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function showToast(message, type = "info") {
+      const container = document.getElementById("toast-container");
+      if (!container) return;
+
+      const styles = {
+        success: "bg-emerald-700 text-white border-emerald-600",
+        error: "bg-rose-700 text-white border-rose-600",
+        info: "bg-warmblue-800 text-white border-warmblue-700"
+      };
+
+      const toast = document.createElement("div");
+      toast.className = `pointer-events-auto px-4 py-3 rounded-2xl shadow-lg border text-sm font-semibold flex items-center justify-between gap-3 transition-all ${styles[type] || styles.info}`;
+      toast.innerHTML = `
+        <span>${escapeHtml(message)}</span>
+        <button type="button" onclick="this.parentElement.remove()" aria-label="Tutup notifikasi" class="text-white/80 hover:text-white font-bold px-1">&times;</button>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        if (toast.parentElement) toast.remove();
+      }, 4200);
+    }
+
+    // Salin teks ke clipboard (mendukung lingkungan iframe dengan document.execCommand)
+    function copyTextToClipboard(text, label = "Teks") {
+      try {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        showToast(`${label} berhasil disalin ke clipboard.`, "success");
+      } catch (err) {
+        showToast(`Gagal menyalin ${label}. Silakan salin secara manual.`, "error");
+      }
+    }
+
+    /**
+     * ============================================================================
+     * PEMBARUAN ELEMEN GLOBAL (SPANDUK, FOOTER, TAUTAN WHATSAPP & PORTAL)
+     * ============================================================================
+     */
+    function updateGlobalChrome() {
+      const s = appState.settings;
+      const bar = document.getElementById("top-announcement-bar");
+      const dot = document.getElementById("reg-status-dot");
+      const text = document.getElementById("reg-banner-text");
+
+      if (bar && dot && text) {
+        text.textContent = s.registrationBannerText;
+        if (s.registrationOpen) {
+          bar.classList.remove("bg-slate-700");
+          bar.classList.add("bg-warmblue-700");
+          dot.classList.remove("bg-amber-400");
+          dot.classList.add("bg-emerald-400");
+        } else {
+          bar.classList.remove("bg-warmblue-700");
+          bar.classList.add("bg-slate-700");
+          dot.classList.remove("bg-emerald-400");
+          dot.classList.add("bg-amber-400");
+        }
+      }
+
+      const waUrl = getWhatsAppUrl();
+      const floatingWa = document.getElementById("floating-wa-btn");
+      const footerWa = document.getElementById("footer-wa-link");
+      if (floatingWa) floatingWa.href = waUrl;
+      if (footerWa) footerWa.href = waUrl;
+
+      const footerAddr = document.getElementById("footer-address");
+      const footerPhone = document.getElementById("footer-phone");
+      const footerHours = document.getElementById("footer-hours");
+      const portalAnchor = document.getElementById("portal-external-anchor");
+
+      if (footerAddr) footerAddr.textContent = s.address;
+      if (footerPhone) footerPhone.textContent = s.phoneDisplay;
+      if (footerHours) footerHours.textContent = s.operationalHours;
+      if (portalAnchor) portalAnchor.href = s.portalUrl;
+    }
+
+    /**
+     * ============================================================================
+     * NAVIGASI, ROUTING & SEO DINAMIS (W-01, W-08, W-12)
+     * ============================================================================
+     */
+    function getRouteFromHash() {
+      const hash = window.location.hash || "#/";
+      const clean = hash.replace(/^#/, "");
+      return clean.startsWith("/") ? clean : "/" + clean;
+    }
+
+    function updateSeoMeta(title, description) {
+      document.title = title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", description);
+    }
+
+    function highlightActiveNav(route) {
+      document.querySelectorAll(".nav-link").forEach(link => {
+        const target = link.getAttribute("data-nav");
+        if (target === route) {
+          link.classList.add("bg-warmblue-100", "text-warmblue-800");
+          link.classList.remove("text-ink-700");
+        } else {
+          link.classList.remove("bg-warmblue-100", "text-warmblue-800");
+          link.classList.add("text-ink-700");
+        }
+      });
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("mobile-drawer");
+      const btn = document.getElementById("mobile-menu-btn");
+      const hamIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+      const isHidden = drawer.classList.contains("hidden");
+
+      if (isHidden) {
+        drawer.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        hamIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+      } else {
+        closeMobileMenu();
+      }
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById("mobile-drawer");
+      const btn = document.getElementById("mobile-menu-btn");
+      const hamIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+      if (drawer) drawer.classList.add("hidden");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+      if (hamIcon) hamIcon.classList.remove("hidden");
+      if (closeIcon) closeIcon.classList.add("hidden");
+    }
+
+    function openPortalModal() {
+      document.getElementById("portal-modal").classList.remove("hidden");
+    }
+
+    function closePortalModal() {
+      document.getElementById("portal-modal").classList.add("hidden");
+    }
+
+    function renderRoute() {
+      currentRoute = getRouteFromHash();
+      const root = document.getElementById("app-root");
+      if (!root) return;
+
+      highlightActiveNav(currentRoute);
+
+      // Cek Mode Pemeliharaan (W-12) kecuali sedang membuka /admin
+      if (appState.settings.maintenanceMode && currentRoute !== "/admin") {
+        updateSeoMeta("Pemeliharaan Sistem — PAUD Kasih Ibu", "Website PAUD Kasih Ibu sedang dalam pemeliharaan berkala.");
+        root.innerHTML = renderMaintenancePage();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      switch (currentRoute) {
+        case "/":
+          updateSeoMeta("PAUD Kasih Ibu — Tumbuh Ceria, Berakhlak Mulia & Siap Melangkah", "Website resmi PAUD Kasih Ibu. Pendidikan anak usia dini yang hangat, aman, dan menyenangkan.");
+          root.innerHTML = renderHomePage();
+          break;
+        case "/tentang":
+          updateSeoMeta("Tentang Kami — PAUD Kasih Ibu", "Sejarah singkat, visi, misi, nilai pendidikan, dan legalitas PAUD Kasih Ibu.");
+          root.innerHTML = renderAboutPage();
+          break;
+        case "/program":
+          updateSeoMeta("Program Belajar — PAUD Kasih Ibu", "Kelompok Bermain, TK A, TK B, jadwal kegiatan harian, dan ekstrakurikuler PAUD Kasih Ibu.");
+          root.innerHTML = renderProgramPage();
+          break;
+        case "/guru":
+          updateSeoMeta("Guru & Staf — PAUD Kasih Ibu", "Kenali para pendidik hangat dan berpengalaman di PAUD Kasih Ibu.");
+          root.innerHTML = renderTeachersPage();
+          break;
+        case "/fasilitas":
+          updateSeoMeta("Fasilitas & Keamanan — PAUD Kasih Ibu", "Ruang kelas nyaman, area bermain aman, dan fasilitas ramah anak di PAUD Kasih Ibu.");
+          root.innerHTML = renderFacilitiesPage();
+          break;
+        case "/galeri":
+          updateSeoMeta("Galeri Kegiatan — PAUD Kasih Ibu", "Dokumentasi kegiatan belajar dan bermain anak-anak PAUD Kasih Ibu.");
+          root.innerHTML = renderGalleryPage();
+          break;
+        case "/daftar":
+          updateSeoMeta("Pendaftaran Peserta Didik Baru — PAUD Kasih Ibu", "Informasi alur, persyaratan, jadwal, biaya, dan formulir pendaftaran online PAUD Kasih Ibu.");
+          root.innerHTML = renderRegistrationPage();
+          break;
+        case "/faq":
+          updateSeoMeta("Pertanyaan Umum (FAQ) — PAUD Kasih Ibu", "Jawaban atas pertanyaan yang sering diajukan calon orang tua siswa.");
+          root.innerHTML = renderFaqPage();
+          break;
+        case "/kontak":
+          updateSeoMeta("Kontak & Lokasi — PAUD Kasih Ibu", "Alamat lengkap, nomor WhatsApp, jam operasional, dan peta lokasi PAUD Kasih Ibu.");
+          root.innerHTML = renderContactPage();
+          break;
+        case "/admin":
+          updateSeoMeta("Panel Admin CMS (Supabase) — PAUD Kasih Ibu", "Pengelolaan konten website PAUD Kasih Ibu berbasis Supabase.");
+          root.innerHTML = renderAdminPage();
+          break;
+        default:
+          updateSeoMeta("Halaman Tidak Ditemukan (404) — PAUD Kasih Ibu", "Maaf, halaman yang Anda cari tidak tersedia.");
+          root.innerHTML = render404Page();
+          break;
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /**
+     * ============================================================================
+     * RENDER HALAMAN PUBLIK (SESUAI PRD BAGIAN 3 & 4)
+     * ============================================================================
+     */
+
+    // 1. BERANDA (/)
+    function renderHomePage() {
+      const s = appState.settings;
+      const featuredPrograms = appState.programs.slice(0, 3);
+      const featuredGallery = appState.gallery.slice(0, 4);
+      const featuredTestimonials = appState.testimonials.slice(0, 3);
+
+      return `
+        <div class="page-enter">
+          <!-- Hero Section Biru Hangat -->
+          <section class="bg-warm-pattern border-b border-warmblue-100 py-12 sm:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-warmblue-200 text-warmblue-700 text-xs sm:text-sm font-bold shadow-2xs">
+                  <span class="w-2 h-2 rounded-full bg-honey-500"></span>
+                  <span>Tahun Ajaran ${escapeHtml(s.academicYear)} • Kelompok Bermain & TK</span>
+                </div>
+
+                <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink-900 leading-[1.18]">
+                  Rumah kedua yang hangat untuk langkah pertama buah hati Anda
+                </h1>
+
+                <p class="text-base sm:text-lg text-ink-700 max-w-2xl leading-relaxed">
+                  Di PAUD Kasih Ibu, setiap anak diajak mengenal dunia melalui permainan bermakna, kasih sayang pendidik berpengalaman, dan lingkungan belajar yang aman serta ceria.
+                </p>
+
+                <!-- Tombol Aksi Utama (Maksimal 2 Ketukan ke Formulir Pendaftaran) -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+                  <a href="#/daftar" class="min-h-[52px] px-7 py-3.5 rounded-2xl bg-honey-500 hover:bg-honey-600 text-white font-display font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                    <span>Daftar Tahun Ajaran ${escapeHtml(s.academicYear)}</span>
+                  </a>
+                  <a href="${getWhatsAppUrl()}" target="_blank" rel="noopener noreferrer" class="min-h-[52px] px-6 py-3.5 rounded-2xl bg-white hover:bg-warmblue-50 text-warmblue-700 border-2 border-warmblue-200 font-display font-bold text-base transition-all flex items-center justify-center gap-2">
+                    <span>Jadwalkan Kunjungan Sekolah</span>
+                  </a>
+                </div>
+
+                <div class="pt-3 flex flex-wrap items-center gap-6 text-sm text-ink-600 font-semibold">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-warmblue-100 text-warmblue-700 flex items-center justify-center text-xs font-extrabold">&#10003;</span>
+                    <span>Kurikulum Merdeka PAUD</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-warmblue-100 text-warmblue-700 flex items-center justify-center text-xs font-extrabold">&#10003;</span>
+                    <span>Rasio Guru & Anak Ideal</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-warmblue-100 text-warmblue-700 flex items-center justify-center text-xs font-extrabold">&#10003;</span>
+                    <span>Lingkungan Aman & Bersih</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bingkai Foto Utama Hero -->
+              <div class="lg:col-span-5">
+                <div class="relative bg-white p-3.5 sm:p-4 rounded-[2rem] shadow-soft border border-warmblue-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80"
+                    onerror="this.onerror=null;this.src='${getFallbackImage("Suasana Belajar PAUD Kasih Ibu")}';"
+                    alt="Anak-anak PAUD Kasih Ibu belajar dan berkreasi bersama guru"
+                    class="w-full h-72 sm:h-96 object-cover rounded-[1.5rem]"
+                  />
+                  <div class="mt-3.5 px-2 pb-1 flex items-center justify-between gap-3">
+                    <div>
+                      <p class="font-display font-bold text-sm text-ink-900">Suasana Sentra Kreativitas</p>
+                      <p class="text-xs text-ink-500">Foto ilustrasi kegiatan (izin orang tua terjaga)</p>
+                    </div>
+                    <a href="#/galeri" class="text-xs font-bold text-warmblue-700 hover:underline shrink-0">
+                      Lihat Galeri
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Keunggulan Sekolah -->
+          <section class="py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="max-w-2xl mb-10">
+              <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900">
+                Mengapa orang tua mempercayakan buah hati kepada kami
+              </h2>
+              <p class="text-ink-600 mt-2.5 text-base">
+                Kami memadukan kehangatan pengasuhan keluarga dengan metode pembelajaran anak usia dini yang terstruktur.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-white p-7 rounded-3xl border border-warmblue-100 shadow-card">
+                <div class="w-12 h-12 rounded-2xl bg-warmblue-100 text-warmblue-700 flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </div>
+                <h3 class="font-display font-bold text-lg text-ink-900 mb-2">Pendekatan Penuh Kasih</h3>
+                <p class="text-sm text-ink-600 leading-relaxed">
+                  Setiap anak memiliki ritme tumbuh kembang yang unik. Guru mendampingi dengan kesabaran tanpa membandingkan satu anak dengan lainnya.
+                </p>
+              </div>
+
+              <div class="bg-white p-7 rounded-3xl border border-warmblue-100 shadow-card">
+                <div class="w-12 h-12 rounded-2xl bg-honey-100 text-honey-600 flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h3 class="font-display font-bold text-lg text-ink-900 mb-2">Belajar Lewat Bermain</h3>
+                <p class="text-sm text-ink-600 leading-relaxed">
+                  Sistem pembelajaran sentra melatih kemandirian, bahasa, motorik, serta kemampuan bersosialisasi secara alami dan menggembirakan.
+                </p>
+              </div>
+
+              <div class="bg-white p-7 rounded-3xl border border-warmblue-100 shadow-card">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h3 class="font-display font-bold text-lg text-ink-900 mb-2">Lingkungan Aman & Komunikatif</h3>
+                <p class="text-sm text-ink-600 leading-relaxed">
+                  Ruang kelas bersih, alat permainan standar aman anak, serta komunikasi rutin orang tua dan guru melalui Portal Akademik.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Ringkasan Program Usia -->
+          <section class="bg-warmblue-50/80 border-y border-warmblue-100 py-14 sm:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+              <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+                <div>
+                  <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900">Program Kelompok Usia</h2>
+                  <p class="text-ink-600 mt-2">Dirancang sesuai tahapan perkembangan psikologis dan motorik anak.</p>
+                </div>
+                <a href="#/program" class="min-h-[44px] px-5 py-2.5 rounded-xl bg-white border border-warmblue-200 text-warmblue-700 font-display font-bold text-sm hover:bg-warmblue-100 transition-colors inline-flex items-center justify-center self-start">
+                  Detail Kurikulum & Jadwal
+                </a>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                ${featuredPrograms.map(prog => `
+                  <article class="bg-white rounded-3xl p-7 border border-warmblue-100 shadow-card flex flex-col justify-between">
+                    <div>
+                      <span class="inline-block px-3 py-1 rounded-full bg-warmblue-100 text-warmblue-800 text-xs font-extrabold mb-4">
+                        ${escapeHtml(prog.ageRange)}
+                      </span>
+                      <h3 class="font-display font-bold text-xl text-ink-900 mb-2">${escapeHtml(prog.name)}</h3>
+                      <p class="text-xs font-bold text-warmblue-600 mb-3">${escapeHtml(prog.schedule)}</p>
+                      <p class="text-sm text-ink-600 leading-relaxed mb-5">${escapeHtml(prog.description)}</p>
+                    </div>
+                    <div class="pt-4 border-t border-warmblue-50 flex items-center justify-between">
+                      <span class="text-xs font-bold text-ink-500">SPP: ${escapeHtml(prog.monthlyFee)}</span>
+                      <a href="#/daftar" class="text-sm font-display font-bold text-honey-600 hover:text-honey-500">Daftar</a>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+
+          <!-- Galeri Singkat -->
+          <section class="py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+              <div>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900">Keceriaan Kegiatan Sehari-hari</h2>
+                <p class="text-ink-600 mt-2">Ketuk foto untuk memperbesar dokumentasi aktivitas belajar anak.</p>
+              </div>
+              <a href="#/galeri" class="min-h-[44px] px-5 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm transition-colors inline-flex items-center justify-center self-start">
+                Buka Semua Galeri
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              ${featuredGallery.map((item, idx) => `
+                <button type="button" onclick="openLightboxById('${item.id}')" class="group text-left bg-white rounded-3xl overflow-hidden border border-warmblue-100 shadow-card focus:outline-none">
+                  <div class="aspect-4/3 overflow-hidden bg-warmblue-100">
+                    <img
+                      src="${escapeHtml(item.imageUrl)}"
+                      onerror="this.onerror=null;this.src='${getFallbackImage(item.title)}';"
+                      alt="${escapeHtml(item.title)}"
+                      loading="lazy"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <span class="text-xs font-bold text-warmblue-600">${escapeHtml(item.category)}</span>
+                    <h3 class="font-display font-bold text-sm text-ink-900 mt-1 line-clamp-2">${escapeHtml(item.title)}</h3>
+                  </div>
+                </button>
+              `).join("")}
+            </div>
+          </section>
+
+          <!-- Testimoni Orang Tua (W-11) -->
+          <section class="bg-warmblue-50/70 border-t border-warmblue-100 py-14 sm:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+              <div class="max-w-2xl mb-10">
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900">Cerita dari Orang Tua Siswa</h2>
+                <p class="text-ink-600 mt-2">Ditampilkan dengan persetujuan tertulis orang tua dan penyamaran identitas demi privasi keluarga.</p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                ${featuredTestimonials.map(t => `
+                  <figure class="bg-white p-7 rounded-3xl border border-warmblue-100 shadow-card flex flex-col justify-between">
+                    <blockquote class="text-sm sm:text-base text-ink-700 leading-relaxed italic mb-6">
+                      "${escapeHtml(t.quote)}"
+                    </blockquote>
+                    <figcaption class="pt-4 border-t border-warmblue-50">
+                      <p class="font-display font-bold text-sm text-ink-900">${escapeHtml(t.parentName)}</p>
+                      <p class="text-xs text-ink-500 mt-0.5">${escapeHtml(t.consentNote)}</p>
+                    </figcaption>
+                  </figure>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+
+          <!-- Ajakan Daftar Penutup -->
+          <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-14">
+            <div class="bg-warmblue-700 rounded-[2rem] p-8 sm:p-12 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-soft">
+              <div class="max-w-2xl space-y-3">
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl">Siap mengenal PAUD Kasih Ibu lebih dekat?</h2>
+                <p class="text-warmblue-100 text-base">
+                  Isi formulir pendaftaran secara online dalam hitungan menit atau hubungi tim kami lewat WhatsApp untuk sesi konsultasi dan kunjungan sekolah.
+                </p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3.5 w-full lg:w-auto shrink-0">
+                <a href="#/daftar" class="min-h-[52px] px-7 py-3.5 rounded-2xl bg-honey-500 hover:bg-honey-600 text-white font-display font-bold text-base text-center flex items-center justify-center">
+                  Isi Formulir Daftar
+                </a>
+                <a href="#/kontak" class="min-h-[52px] px-6 py-3.5 rounded-2xl bg-warmblue-600 hover:bg-warmblue-500 text-white border border-warmblue-400 font-display font-bold text-base text-center flex items-center justify-center">
+                  Lihat Lokasi Sekolah
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    // 2. TENTANG KAMI (/tentang)
+    function renderAboutPage() {
+      const s = appState.settings;
+      return `
+        <div class="page-enter max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12">
+          <div class="max-w-3xl space-y-4">
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Tentang PAUD Kasih Ibu</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Berdiri sejak tahun 2016 dengan semangat menghadirkan pendidikan anak usia dini yang ramah keluarga, terjangkau, dan berorientasi pada kebahagiaan belajar anak.
+            </p>
+          </div>
+
+          <!-- Sejarah Singkat -->
+          <section class="bg-white rounded-3xl p-7 sm:p-10 border border-warmblue-100 shadow-card space-y-4">
+            <h2 class="font-display font-bold text-2xl text-ink-900">Sejarah Singkat</h2>
+            <p class="text-ink-700 leading-relaxed">
+              PAUD Kasih Ibu berawal dari kepedulian para pendidik dan tokoh masyarakat sekitar untuk menyediakan ruang tumbuh kembang anak usia 2 hingga 6 tahun yang aman dan penuh perhatian. Dari satu ruang belajar sederhana dengan 15 peserta didik pertama, kini PAUD Kasih Ibu telah mendampingi ratusan alumni melangkah percaya diri ke jenjang sekolah dasar.
+            </p>
+            <p class="text-ink-700 leading-relaxed">
+              Kami percaya masa usia dini bukanlah masa untuk memaksakan hafalan, melainkan masa emas membangun rasa ingin tahu, empati, kemandirian, dan kecintaan terhadap belajar.
+            </p>
+          </section>
+
+          <!-- Visi & Misi -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section class="bg-warmblue-600 text-white rounded-3xl p-7 sm:p-9 shadow-soft space-y-4">
+              <h2 class="font-display font-bold text-2xl">Visi Sekolah</h2>
+              <p class="text-warmblue-50 text-base sm:text-lg leading-relaxed font-semibold">
+                "Mewujudkan generasi anak usia dini yang ceria, berakhlak mulia, mandiri, kreatif, dan siap melangkah ke jenjang pendidikan berikutnya."
+              </p>
+            </section>
+
+            <section class="bg-white rounded-3xl p-7 sm:p-9 border border-warmblue-100 shadow-card space-y-4">
+              <h2 class="font-display font-bold text-2xl text-ink-900">Misi Sekolah</h2>
+              <ul class="space-y-3 text-sm sm:text-base text-ink-700">
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-warmblue-100 text-warmblue-700 flex items-center justify-center text-xs font-bold shrink-0 mt-1">1</span>
+                  <span>Menyelenggarakan pembelajaran aktif berbasis bermain yang sesuai tahapan usia anak.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-warmblue-100 text-warmblue-700 flex items-center justify-center text-xs font-bold shrink-0 mt-1">2</span>
+                  <span>Menanamkan pembiasaan perilaku santun, jujur, peduli sesama, dan cinta lingkungan.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-warmblue-100 text-warmblue-700 flex items-center justify-center text-xs font-bold shrink-0 mt-1">3</span>
+                  <span>Membangun kemitraan yang hangat dan terbuka antara guru dan orang tua.</span>
+                </li>
+              </ul>
+            </section>
+          </div>
+
+          <!-- Nilai Pendidikan & Legalitas -->
+          <section class="bg-warmblue-50/80 rounded-3xl p-7 sm:p-10 border border-warmblue-100 space-y-6">
+            <div>
+              <h2 class="font-display font-bold text-2xl text-ink-900">Legalitas & Identitas Satuan Pendidikan</h2>
+              <p class="text-sm text-ink-600 mt-1">Data di bawah ini dapat diperbarui admin sebelum rilis resmi.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="bg-white p-5 rounded-2xl border border-warmblue-100">
+                <span class="text-xs font-bold text-ink-500 block">Nomor Pokok Sekolah Nasional</span>
+                <span class="font-display font-bold text-base text-ink-900 mt-1 block">${escapeHtml(s.npsn)}</span>
+              </div>
+              <div class="bg-white p-5 rounded-2xl border border-warmblue-100">
+                <span class="text-xs font-bold text-ink-500 block">Izin Operasional</span>
+                <span class="font-display font-bold text-base text-ink-900 mt-1 block">${escapeHtml(s.skOperasional)}</span>
+              </div>
+              <div class="bg-white p-5 rounded-2xl border border-warmblue-100">
+                <span class="text-xs font-bold text-ink-500 block">Status Akreditasi</span>
+                <span class="font-display font-bold text-base text-ink-900 mt-1 block">${escapeHtml(s.accreditation)}</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    // 3. PROGRAM (/program)
+    function renderProgramPage() {
+      return `
+        <div class="page-enter max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-14">
+          <div class="max-w-3xl space-y-4">
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Program & Kurikulum Belajar</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Mengacu pada Kurikulum Merdeka PAUD yang berpusat pada minat anak, menggabungkan kegiatan sentra, eksplorasi alam, dan penguatan karakter.
+            </p>
+          </div>
+
+          <!-- Kartu Kelompok Usia -->
+          <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            ${appState.programs.map(prog => `
+              <article class="bg-white rounded-3xl p-7 border border-warmblue-100 shadow-card flex flex-col justify-between">
+                <div class="space-y-4">
+                  <span class="inline-block px-3.5 py-1 rounded-full bg-warmblue-100 text-warmblue-800 text-xs font-extrabold">
+                    ${escapeHtml(prog.ageRange)}
+                  </span>
+                  <h2 class="font-display font-bold text-2xl text-ink-900">${escapeHtml(prog.name)}</h2>
+                  <p class="text-sm font-bold text-warmblue-700">${escapeHtml(prog.schedule)}</p>
+                  <p class="text-sm text-ink-600 leading-relaxed">${escapeHtml(prog.description)}</p>
+                  <div class="pt-2">
+                    <h3 class="text-xs font-extrabold text-ink-500 mb-2.5">Fokus Pembelajaran:</h3>
+                    <ul class="space-y-2">
+                      ${(prog.highlights || []).map(h => `
+                        <li class="flex items-start gap-2 text-sm text-ink-700">
+                          <span class="text-warmblue-600 font-bold">&#10003;</span>
+                          <span>${escapeHtml(h)}</span>
+                        </li>
+                      `).join("")}
+                    </ul>
+                  </div>
+                </div>
+                <div class="mt-6 pt-5 border-t border-warmblue-100">
+                  <a href="#/daftar" class="min-h-[44px] w-full px-4 py-2.5 rounded-xl bg-honey-500 hover:bg-honey-600 text-white font-display font-bold text-sm flex items-center justify-center transition-colors">
+                    Daftar Program Ini
+                  </a>
+                </div>
+              </article>
+            `).join("")}
+          </section>
+
+          <!-- Jadwal Kegiatan Harian & Ekstrakurikuler -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <section class="lg:col-span-7 bg-white rounded-3xl p-7 sm:p-9 border border-warmblue-100 shadow-card">
+              <h2 class="font-display font-bold text-2xl text-ink-900 mb-2">Contoh Kegiatan Harian</h2>
+              <p class="text-sm text-ink-600 mb-6">Ritme harian yang konsisten membantu anak merasa aman dan terbiasa mandiri.</p>
+              <div class="space-y-3.5">
+                ${appState.dailySchedule.map(row => `
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 rounded-2xl bg-warmblue-50/70 border border-warmblue-100">
+                    <span class="font-display font-bold text-sm text-warmblue-800 shrink-0 sm:w-32">${escapeHtml(row.time)}</span>
+                    <span class="text-sm text-ink-800 font-medium">${escapeHtml(row.activity)}</span>
+                  </div>
+                `).join("")}
+              </div>
+            </section>
+
+            <section class="lg:col-span-5 bg-warmblue-50/80 rounded-3xl p-7 sm:p-9 border border-warmblue-100 space-y-5">
+              <div>
+                <h2 class="font-display font-bold text-2xl text-ink-900">Kegiatan Ekstrakurikuler</h2>
+                <p class="text-sm text-ink-600 mt-1">Mengasah bakat seni, gerak, dan kepedulian alam.</p>
+              </div>
+              <div class="space-y-3.5">
+                ${appState.extracurriculars.map(ex => `
+                  <div class="bg-white p-4 rounded-2xl border border-warmblue-100">
+                    <div class="flex items-center justify-between gap-2 mb-1">
+                      <h3 class="font-display font-bold text-base text-ink-900">${escapeHtml(ex.name)}</h3>
+                      <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-warmblue-100 text-warmblue-700">${escapeHtml(ex.day)}</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-ink-600">${escapeHtml(ex.desc)}</p>
+                  </div>
+                `).join("")}
+              </div>
+            </section>
+          </div>
+        </div>
+      `;
+    }
+
+    // 4. GURU & STAF (/guru)
+    function renderTeachersPage() {
+      return `
+        <div class="page-enter max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12">
+          <div class="max-w-3xl space-y-4">
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Guru & Staf Pendidik</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Para pendidik berdedikasi yang mendampingi anak-anak dengan kesabaran, kehangatan, dan kompetensi pendidikan anak usia dini.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            ${appState.teachers.map(teacher => `
+              <article class="bg-white rounded-3xl overflow-hidden border border-warmblue-100 shadow-card flex flex-col">
+                <div class="aspect-square bg-warmblue-100 overflow-hidden">
+                  <img
+                    src="${escapeHtml(teacher.photoUrl)}"
+                    onerror="this.onerror=null;this.src='${getFallbackImage(teacher.name)}';"
+                    alt="Foto ${escapeHtml(teacher.name)}"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <h2 class="font-display font-bold text-lg text-ink-900">${escapeHtml(teacher.name)}</h2>
+                    <p class="text-xs font-bold text-warmblue-700 mt-1">${escapeHtml(teacher.role)}</p>
+                  </div>
+                  <blockquote class="text-sm text-ink-600 italic border-t border-warmblue-50 pt-3">
+                    "${escapeHtml(teacher.quote)}"
+                  </blockquote>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    // 5. FASILITAS (/fasilitas)
+    function renderFacilitiesPage() {
+      return `
+        <div class="page-enter max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12">
+          <div class="max-w-3xl space-y-4">
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Fasilitas & Keamanan Sekolah</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Setiap sudut lingkungan PAUD Kasih Ibu dirancang agar ramah anak, higienis, aman dari sudut tajam, serta mendukung eksplorasi bermain.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+            ${appState.facilities.map(fac => `
+              <article class="bg-white rounded-3xl overflow-hidden border border-warmblue-100 shadow-card">
+                <div class="aspect-16/10 bg-warmblue-100 overflow-hidden">
+                  <img
+                    src="${escapeHtml(fac.imageUrl)}"
+                    onerror="this.onerror=null;this.src='${getFallbackImage(fac.title)}';"
+                    alt="${escapeHtml(fac.title)}"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-7 space-y-2.5">
+                  <span class="inline-block px-3 py-1 rounded-full bg-warmblue-50 text-warmblue-700 text-xs font-bold">
+                    ${escapeHtml(fac.category)}
+                  </span>
+                  <h2 class="font-display font-bold text-xl text-ink-900">${escapeHtml(fac.title)}</h2>
+                  <p class="text-sm sm:text-base text-ink-600 leading-relaxed">${escapeHtml(fac.description)}</p>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    // 6. GALERI (/galeri) dengan Lightbox & Filter Kategori (W-06)
+    function renderGalleryPage() {
+      const categories = ["Semua", ...new Set(appState.gallery.map(g => g.category))];
+      filteredGalleryItems = activeGalleryFilter === "Semua"
+        ? appState.gallery
+        : appState.gallery.filter(g => g.category === activeGalleryFilter);
+
+      return `
+        <div class="page-enter max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-10">
+          <div class="max-w-3xl space-y-4">
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Galeri Kegiatan Sekolah</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Dokumentasi momen belajar, bermain, dan berkarya anak-anak. Ketuk gambar mana saja untuk melihat tampilan penuh.
+            </p>
+          </div>
+
+          <!-- Filter Kategori -->
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter kategori galeri">
+            ${categories.map(cat => `
+              <button
+                type="button"
+                onclick="setGalleryFilter('${escapeHtml(cat)}')"
+                class="min-h-[44px] px-4 py-2 rounded-xl text-sm font-bold transition-colors ${activeGalleryFilter === cat
+                  ? 'bg-warmblue-600 text-white shadow-xs'
+                  : 'bg-white text-ink-700 border border-warmblue-100 hover:bg-warmblue-50'}"
+              >
+                ${escapeHtml(cat)}
+              </button>
+            `).join("")}
+          </div>
+
+          <!-- Grid Foto -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${filteredGalleryItems.map((item, idx) => `
+              <button
+                type="button"
+                onclick="openLightbox(${idx})"
+                class="group text-left bg-white rounded-3xl overflow-hidden border border-warmblue-100 shadow-card flex flex-col focus:outline-none"
+              >
+                <div class="aspect-4/3 w-full bg-warmblue-100 overflow-hidden relative">
+                  <img
+                    src="${escapeHtml(item.imageUrl)}"
+                    onerror="this.onerror=null;this.src='${getFallbackImage(item.title)}';"
+                    alt="${escapeHtml(item.title)}"
+                    loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-ink-900/75 text-white text-xs font-bold">
+                    Perbesar
+                  </span>
+                </div>
+                <div class="p-5 space-y-1.5">
+                  <span class="text-xs font-bold text-warmblue-600">${escapeHtml(item.category)}</span>
+                  <h2 class="font-display font-bold text-base text-ink-900">${escapeHtml(item.title)}</h2>
+                  <p class="text-xs sm:text-sm text-ink-600 line-clamp-2">${escapeHtml(item.description)}</p>
+                </div>
+              </button>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function setGalleryFilter(category) {
+      activeGalleryFilter = category;
+      renderRoute();
+    }
+
+    function openLightboxById(id) {
+      filteredGalleryItems = appState.gallery;
+      const idx = filteredGalleryItems.findIndex(item => item.id === id);
+      openLightbox(idx >= 0 ? idx : 0);
+    }
+
+    function openLightbox(index) {
+      if (!filteredGalleryItems || filteredGalleryItems.length === 0) return;
+      currentLightboxIndex = (index + filteredGalleryItems.length) % filteredGalleryItems.length;
+      const item = filteredGalleryItems[currentLightboxIndex];
+
+      document.getElementById("lightbox-img").src = item.imageUrl;
+      document.getElementById("lightbox-img").alt = item.title;
+      document.getElementById("lightbox-category").textContent = item.category;
+      document.getElementById("lightbox-title").textContent = item.title;
+      document.getElementById("lightbox-desc").textContent = item.description;
+      document.getElementById("lightbox-counter").textContent = `${currentLightboxIndex + 1} / ${filteredGalleryItems.length}`;
+      document.getElementById("lightbox-modal").classList.remove("hidden");
+    }
+
+    function navigateLightbox(step) {
+      openLightbox(currentLightboxIndex + step);
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox-modal").classList.add("hidden");
+    }
+
+    // 7. PENDAFTARAN (/daftar) — Google Form Tersemat + Tautan Tab Baru + UU PDP (W-02)
+    function renderRegistrationPage() {
+      const s = appState.settings;
+      return `
+        <div class="page-enter max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12">
+          <div class="max-w-3xl space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full ${s.registrationOpen ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} text-xs sm:text-sm font-extrabold">
+              <span>Status: ${s.registrationOpen ? 'Pendaftaran Dibuka' : 'Pendaftaran Sementara Ditutup'}</span>
+            </div>
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Pendaftaran Peserta Didik Baru</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Tahun Ajaran ${escapeHtml(s.academicYear)}. Ikuti langkah pendaftaran mudah di bawah ini atau hubungi admin kami melalui WhatsApp bila memerlukan bantuan pengisian.
+            </p>
+          </div>
+
+          <!-- Alur Pendaftaran (Urutan 1-4 karena memang tahapan proses) -->
+          <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="bg-white p-6 rounded-3xl border border-warmblue-100 shadow-card">
+              <span class="w-9 h-9 rounded-xl bg-warmblue-600 text-white font-display font-extrabold text-sm flex items-center justify-center mb-4">1</span>
+              <h2 class="font-display font-bold text-base text-ink-900 mb-1.5">Isi Formulir Online</h2>
+              <p class="text-sm text-ink-600">Lengkapi data calon siswa dan orang tua melalui Google Form di halaman ini.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-warmblue-100 shadow-card">
+              <span class="w-9 h-9 rounded-xl bg-warmblue-600 text-white font-display font-extrabold text-sm flex items-center justify-center mb-4">2</span>
+              <h2 class="font-display font-bold text-base text-ink-900 mb-1.5">Konfirmasi & Kunjungan</h2>
+              <p class="text-sm text-ink-600">Admin menghubungi orang tua untuk jadwal silaturahmi dan pengenalan lingkungan sekolah.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-warmblue-100 shadow-card">
+              <span class="w-9 h-9 rounded-xl bg-warmblue-600 text-white font-display font-extrabold text-sm flex items-center justify-center mb-4">3</span>
+              <h2 class="font-display font-bold text-base text-ink-900 mb-1.5">Kelengkapan Berkas</h2>
+              <p class="text-sm text-ink-600">Menyerahkan fotokopi Akta Kelahiran, Kartu Keluarga, dan pas foto anak.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-warmblue-100 shadow-card">
+              <span class="w-9 h-9 rounded-xl bg-honey-500 text-white font-display font-extrabold text-sm flex items-center justify-center mb-4">4</span>
+              <h2 class="font-display font-bold text-base text-ink-900 mb-1.5">Siap Belajar Bersama</h2>
+              <p class="text-sm text-ink-600">Ananda resmi terdaftar dan orang tua memperoleh akses ke Portal Akademik.</p>
+            </div>
+          </section>
+
+          <!-- Persyaratan & Rincian Biaya Contoh -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <section class="lg:col-span-5 bg-white rounded-3xl p-7 border border-warmblue-100 shadow-card space-y-5">
+              <h2 class="font-display font-bold text-xl text-ink-900">Persyaratan Pendaftaran</h2>
+              <ul class="space-y-3 text-sm sm:text-base text-ink-700">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-warmblue-600 font-bold">&#10003;</span>
+                  <span>Fotokopi Akta Kelahiran anak (1 lembar)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-warmblue-600 font-bold">&#10003;</span>
+                  <span>Fotokopi Kartu Keluarga (1 lembar)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-warmblue-600 font-bold">&#10003;</span>
+                  <span>Pas foto berwarna ukuran 3x4 (2 lembar)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-warmblue-600 font-bold">&#10003;</span>
+                  <span>Mengisi formulir pendaftaran online di bawah ini</span>
+                </li>
+              </ul>
+
+              <div class="pt-4 border-t border-warmblue-100">
+                <a href="${getWhatsAppUrl('Halo Admin PAUD Kasih Ibu, saya ingin berkonsultasi mengenai persyaratan dan jadwal pendaftaran.')}" target="_blank" rel="noopener noreferrer" class="min-h-[48px] w-full px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-sm flex items-center justify-center gap-2 transition-colors">
+                  <span>Tanya Admin Lewat WhatsApp</span>
+                </a>
+              </div>
+            </section>
+
+            <section class="lg:col-span-7 bg-warmblue-50/80 rounded-3xl p-7 border border-warmblue-100 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h2 class="font-display font-bold text-xl text-ink-900">Rincian Biaya Pendidikan (Data Contoh)</h2>
+                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Nominal Contoh</span>
+              </div>
+              <p class="text-sm text-ink-600">Biaya pangkal sudah termasuk seragam olahraga, buku kegiatan, dan perlengkapan sentra selama 1 tahun.</p>
+
+              <div class="overflow-x-auto bg-white rounded-2xl border border-warmblue-100">
+                <table class="w-full text-left text-sm">
+                  <thead class="bg-warmblue-100/70 text-warmblue-900 font-display">
+                    <tr>
+                      <th class="py-3.5 px-4 font-bold">Program</th>
+                      <th class="py-3.5 px-4 font-bold">Usia</th>
+                      <th class="py-3.5 px-4 font-bold">Uang Pangkal</th>
+                      <th class="py-3.5 px-4 font-bold">SPP Bulanan</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-warmblue-50">
+                    ${appState.programs.map(p => `
+                      <tr>
+                        <td class="py-3.5 px-4 font-bold text-ink-900">${escapeHtml(p.name)}</td>
+                        <td class="py-3.5 px-4 text-ink-600">${escapeHtml(p.ageRange)}</td>
+                        <td class="py-3.5 px-4 text-ink-800 font-semibold">${escapeHtml(p.registrationFee)}</td>
+                        <td class="py-3.5 px-4 text-warmblue-700 font-bold">${escapeHtml(p.monthlyFee)}</td>
+                      </tr>
+                    `).join("")}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <!-- Formulir Pendaftaran Google Form Tersemat (Kriteria Penerimaan W-02) -->
+          <section class="bg-white rounded-3xl p-6 sm:p-10 border border-warmblue-200 shadow-soft space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-warmblue-100 pb-6">
+              <div>
+                <h2 class="font-display font-extrabold text-2xl text-ink-900">Formulir Pendaftaran Online</h2>
+                <p class="text-sm text-ink-600 mt-1">
+                  Jika formulir di bawah tidak tampil penuh di perangkat Anda, gunakan tombol buka di tab baru.
+                </p>
+              </div>
+              <a href="${escapeHtml(s.googleFormDirectUrl)}" target="_blank" rel="noopener noreferrer" class="min-h-[48px] px-5 py-3 rounded-2xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm shrink-0 inline-flex items-center justify-center gap-2 transition-colors">
+                <span>Buka Formulir di Tab Baru</span>
+              </a>
+            </div>
+
+            <!-- Pemberitahuan Privasi UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (PRD Bagian 7) -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-warmblue-50 border border-warmblue-200 text-xs sm:text-sm text-ink-700 leading-relaxed">
+              <p class="font-display font-bold text-warmblue-900 mb-1">Pemberitahuan Pelindungan Data Pribadi (UU No. 27 Tahun 2022)</p>
+              <p>
+                Data calon peserta didik dan orang tua yang dikirimkan melalui formulir ini hanya digunakan untuk keperluan administrasi penerimaan siswa baru PAUD Kasih Ibu, disimpan secara terbatas oleh panitia pendaftaran resmi, dan tidak dibagikan kepada pihak ketiga tanpa persetujuan tertulis orang tua/wali.
+              </p>
+            </div>
+
+            <!-- Iframe Responsif Tanpa Geser Samping -->
+            <div class="w-full rounded-2xl overflow-hidden border border-warmblue-100 bg-warmblue-50/40">
+              <iframe
+                src="${escapeHtml(s.googleFormEmbedUrl)}"
+                title="Formulir Pendaftaran PAUD Kasih Ibu"
+                class="w-full min-h-[680px] border-0 block"
+                loading="lazy"
+              >
+                Memuat formulir pendaftaran...
+              </iframe>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    // 8. FAQ (/faq)
+    function renderFaqPage() {
+      return `
+        <div class="page-enter max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-10">
+          <div class="space-y-4">
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Pertanyaan yang Sering Diajukan</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Jawaban ringkas untuk membantu ayah dan bunda mengenal kegiatan serta ketentuan di PAUD Kasih Ibu.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            ${appState.faqs.map((item, index) => `
+              <details class="group bg-white rounded-2xl border border-warmblue-100 shadow-card overflow-hidden" ${index === 0 ? "open" : ""}>
+                <summary class="min-h-[56px] px-6 py-4 cursor-pointer list-none flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-ink-900 hover:bg-warmblue-50/50 transition-colors">
+                  <span>${escapeHtml(item.question)}</span>
+                  <span class="w-8 h-8 rounded-full bg-warmblue-100 text-warmblue-700 flex items-center justify-center shrink-0 font-extrabold group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-6 pb-5 pt-1 text-sm sm:text-base text-ink-700 leading-relaxed border-t border-warmblue-50">
+                  ${escapeHtml(item.answer)}
+                </div>
+              </details>
+            `).join("")}
+          </div>
+
+          <div class="bg-warmblue-50 rounded-3xl p-7 border border-warmblue-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="font-display font-bold text-lg text-ink-900">Masih ada pertanyaan lain?</h2>
+              <p class="text-sm text-ink-600 mt-1">Tim admin kami siap membantu menjawab pertanyaan Anda dengan ramah.</p>
+            </div>
+            <a href="${getWhatsAppUrl()}" target="_blank" rel="noopener noreferrer" class="min-h-[48px] px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-sm shrink-0 flex items-center justify-center">
+              Chat WhatsApp Sekarang
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    // 9. KONTAK & PETA LOKASI (/kontak) — W-05 & W-13
+    function renderContactPage() {
+      const s = appState.settings;
+      return `
+        <div class="page-enter max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12">
+          <div class="max-w-3xl space-y-4">
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Kontak & Lokasi Sekolah</h1>
+            <p class="text-base sm:text-lg text-ink-600 leading-relaxed">
+              Kami menyambut hangat kunjungan ayah dan bunda ke sekolah pada jam operasional.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Kartu Informasi Kontak & Formulir Pesan Cepat (W-13) -->
+            <div class="lg:col-span-5 space-y-6">
+              <div class="bg-white rounded-3xl p-7 border border-warmblue-100 shadow-card space-y-5">
+                <h2 class="font-display font-bold text-xl text-ink-900">Informasi Sekolah</h2>
+                <div class="space-y-4 text-sm">
+                  <div>
+                    <span class="font-bold text-ink-500 block">Alamat Lengkap</span>
+                    <p class="text-ink-900 font-semibold mt-0.5 leading-relaxed">${escapeHtml(s.address)}</p>
+                  </div>
+                  <div>
+                    <span class="font-bold text-ink-500 block">Telepon & WhatsApp</span>
+                    <p class="text-ink-900 font-semibold mt-0.5">${escapeHtml(s.phoneDisplay)} / +${escapeHtml(s.whatsappNumber)}</p>
+                  </div>
+                  <div>
+                    <span class="font-bold text-ink-500 block">Email Resmi</span>
+                    <p class="text-ink-900 font-semibold mt-0.5">${escapeHtml(s.email)}</p>
+                  </div>
+                  <div>
+                    <span class="font-bold text-ink-500 block">Jam Operasional</span>
+                    <p class="text-ink-900 font-semibold mt-0.5">${escapeHtml(s.operationalHours)}</p>
+                  </div>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                  <a href="${getWhatsAppUrl()}" target="_blank" rel="noopener noreferrer" class="min-h-[44px] flex-1 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-sm text-center flex items-center justify-center">
+                    Chat WhatsApp
+                  </a>
+                  <a href="${escapeHtml(s.googleMapsRouteUrl)}" target="_blank" rel="noopener noreferrer" class="min-h-[44px] flex-1 px-4 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm text-center flex items-center justify-center">
+                    Petunjuk Rute
+                  </a>
+                </div>
+              </div>
+
+              <!-- Formulir Kontak Sederhana (W-13) -->
+              <form onsubmit="handleQuickContactSubmit(event)" class="bg-warmblue-50/80 rounded-3xl p-7 border border-warmblue-100 space-y-4">
+                <h2 class="font-display font-bold text-xl text-ink-900">Kirim Pesan ke Admin</h2>
+                <p class="text-xs sm:text-sm text-ink-600">Pesan akan diteruskan langsung ke WhatsApp resmi sekolah.</p>
+
+                <div>
+                  <label for="contact-name" class="block text-sm font-bold text-ink-800 mb-1">Nama Orang Tua / Wali</label>
+                  <input id="contact-name" type="text" required placeholder="Contoh: Ibu Rina" class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-white border border-warmblue-200 text-ink-900 text-sm" />
+                </div>
+
+                <div>
+                  <label for="contact-child-age" class="block text-sm font-bold text-ink-800 mb-1">Usia Anak Saat Ini</label>
+                  <input id="contact-child-age" type="text" required placeholder="Contoh: 4 tahun 3 bulan" class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-white border border-warmblue-200 text-ink-900 text-sm" />
+                </div>
+
+                <div>
+                  <label for="contact-message" class="block text-sm font-bold text-ink-800 mb-1">Pertanyaan atau Keperluan</label>
+                  <textarea id="contact-message" rows="3" required placeholder="Tulis pertanyaan Anda di sini..." class="w-full px-4 py-2.5 rounded-xl bg-white border border-warmblue-200 text-ink-900 text-sm"></textarea>
+                </div>
+
+                <button type="submit" class="min-h-[48px] w-full px-5 py-3 rounded-2xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm transition-colors">
+                  Kirim Lewat WhatsApp
+                </button>
+              </form>
+            </div>
+
+            <!-- Peta Google Maps Tersemat (W-05) -->
+            <div class="lg:col-span-7">
+              <div class="bg-white rounded-3xl p-4 border border-warmblue-100 shadow-card h-full flex flex-col">
+                <div class="flex items-center justify-between px-2 pb-3">
+                  <h2 class="font-display font-bold text-lg text-ink-900">Peta Lokasi PAUD Kasih Ibu</h2>
+                  <a href="${escapeHtml(s.googleMapsRouteUrl)}" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-warmblue-700 hover:underline">
+                    Buka di Google Maps
+                  </a>
+                </div>
+                <div class="flex-1 min-h-[380px] rounded-2xl overflow-hidden bg-warmblue-100">
+                  <iframe
+                    src="${escapeHtml(s.googleMapsEmbedUrl)}"
+                    title="Peta Lokasi PAUD Kasih Ibu"
+                    class="w-full h-full min-h-[380px] border-0 block"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleQuickContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById("contact-name").value.trim();
+      const age = document.getElementById("contact-child-age").value.trim();
+      const msg = document.getElementById("contact-message").value.trim();
+      const composed = `Halo Admin PAUD Kasih Ibu, perkenalkan saya ${name} (orang tua anak usia ${age}). ${msg}`;
+      window.open(getWhatsAppUrl(composed), "_blank", "noopener,noreferrer");
+      showToast("Membuka WhatsApp untuk mengirim pesan Anda.", "success");
+    }
+
+    // 10. HALAMAN 404 RAMAH & HALAMAN PEMELIHARAAN (W-12)
+    function render404Page() {
+      return `
+        <div class="page-enter max-w-2xl mx-auto px-4 sm:px-6 py-20 text-center space-y-6">
+          <div class="w-20 h-20 rounded-3xl bg-warmblue-100 text-warmblue-700 font-display font-extrabold text-3xl flex items-center justify-center mx-auto">
+            404
+          </div>
+          <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900">Halaman Tidak Ditemukan</h1>
+          <p class="text-base text-ink-600 leading-relaxed">
+            Maaf, tautan yang Anda buka mungkin sudah berpindah atau tidak tersedia. Mari kembali ke halaman utama PAUD Kasih Ibu.
+          </p>
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <a href="#/" class="min-h-[48px] px-6 py-3 rounded-2xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm flex items-center justify-center">
+              Kembali ke Beranda
+            </a>
+            <a href="#/daftar" class="min-h-[48px] px-6 py-3 rounded-2xl bg-honey-500 hover:bg-honey-600 text-white font-display font-bold text-sm flex items-center justify-center">
+              Info Pendaftaran
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderMaintenancePage() {
+      return `
+        <div class="page-enter max-w-2xl mx-auto px-4 sm:px-6 py-20 text-center space-y-6">
+          <div class="w-20 h-20 rounded-3xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900">Website Sedang Dalam Pembaruan</h1>
+          <p class="text-base text-ink-600 leading-relaxed">
+            Kami sedang memperbarui informasi dan jadwal tahun ajaran terbaru. Untuk informasi pendaftaran atau pertanyaan mendesak, silakan hubungi admin sekolah lewat WhatsApp.
+          </p>
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <a href="${getWhatsAppUrl()}" target="_blank" rel="noopener noreferrer" class="min-h-[48px] px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-sm flex items-center justify-center">
+              Hubungi WhatsApp Sekolah
+            </a>
+            <a href="#/admin" class="min-h-[48px] px-5 py-3 rounded-2xl bg-warmblue-100 text-warmblue-800 font-display font-bold text-sm flex items-center justify-center">
+              Masuk Admin
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * ============================================================================
+     * PANEL ADMIN CMS (/admin) — SUPABASE AUTH + DATABASE + VERCEL GUIDE
+     * ============================================================================
+     */
+    function renderAdminPage() {
+      if (!adminSession.authenticated) {
+        return renderAdminLoginScreen();
+      }
+
+      const exampleCount =
+        appState.teachers.filter(i => i.isExample).length +
+        appState.programs.filter(i => i.isExample).length +
+        appState.facilities.filter(i => i.isExample).length +
+        appState.gallery.filter(i => i.isExample).length;
+
+      return `
+        <div class="page-enter max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
+          <!-- Header Panel Admin -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-warmblue-100 shadow-card flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <span class="px-3 py-1 rounded-full text-xs font-extrabold ${supabaseConfig.connected ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+                  ${supabaseConfig.connected ? 'Terhubung ke Supabase PostgreSQL' : 'Mode Pratinjau Lokal (Belum Tersambung Supabase)'}
+                </span>
+                ${exampleCount > 0 ? `
+                  <span class="px-3 py-1 rounded-full text-xs font-bold bg-warmblue-100 text-warmblue-800">
+                    ${exampleCount} item masih memakai data contoh
+                  </span>
+                ` : ''}
+              </div>
+              <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900">Panel Pengelola Konten PAUD Kasih Ibu</h1>
+              <p class="text-sm text-ink-600 mt-1">Masuk sebagai <span class="font-bold text-ink-800">${escapeHtml(adminSession.email)}</span></p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="#/" class="min-h-[44px] px-4 py-2.5 rounded-xl bg-warmblue-50 hover:bg-warmblue-100 text-warmblue-800 font-display font-bold text-sm flex items-center justify-center">
+                Lihat Website
+              </a>
+              <button type="button" onclick="handleAdminLogout()" class="min-h-[44px] px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-display font-bold text-sm">
+                Keluar
+              </button>
+            </div>
+          </div>
+
+          <!-- Navigasi Tab Admin -->
+          <div class="flex flex-wrap gap-2">
+            ${[
+              { id: "settings", label: "Pengaturan & Pendaftaran" },
+              { id: "teachers", label: "Guru & Staf" },
+              { id: "programs", label: "Program & Biaya" },
+              { id: "gallery", label: "Galeri & Fasilitas" },
+              { id: "faqs", label: "FAQ & Testimoni" },
+              { id: "deploy", label: "Setup Supabase & Vercel" }
+            ].map(tab => `
+              <button
+                type="button"
+                onclick="switchAdminTab('${tab.id}')"
+                class="min-h-[44px] px-4 py-2.5 rounded-xl text-sm font-display font-bold transition-colors ${activeAdminTab === tab.id
+                  ? 'bg-warmblue-600 text-white shadow-xs'
+                  : 'bg-white text-ink-700 border border-warmblue-100 hover:bg-warmblue-50'}"
+              >
+                ${tab.label}
+              </button>
+            `).join("")}
+          </div>
+
+          <!-- Konten Tab Admin -->
+          <div>
+            ${activeAdminTab === "settings" ? renderAdminSettingsTab() : ""}
+            ${activeAdminTab === "teachers" ? renderAdminTeachersTab() : ""}
+            ${activeAdminTab === "programs" ? renderAdminProgramsTab() : ""}
+            ${activeAdminTab === "gallery" ? renderAdminGalleryTab() : ""}
+            ${activeAdminTab === "faqs" ? renderAdminFaqsTab() : ""}
+            ${activeAdminTab === "deploy" ? renderAdminDeployTab() : ""}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdminLoginScreen() {
+      return `
+        <div class="page-enter max-w-lg mx-auto px-4 sm:px-6 py-14 sm:py-20">
+          <div class="bg-white rounded-3xl p-7 sm:p-9 border border-warmblue-100 shadow-soft space-y-6">
+            <div class="space-y-2">
+              <span class="inline-block px-3 py-1 rounded-full bg-warmblue-100 text-warmblue-800 text-xs font-extrabold">
+                Supabase Auth • Admin Sekolah
+              </span>
+              <h1 class="font-display font-extrabold text-2xl text-ink-900">Masuk ke Panel Admin</h1>
+              <p class="text-sm text-ink-600">
+                Gunakan akun email & kata sandi admin yang terdaftar di Supabase Authentication untuk mengelola konten website.
+              </p>
+            </div>
+
+            <!-- Koneksi Kredensial Supabase (Opsional jika belum diisi di kode) -->
+            <details class="rounded-2xl bg-warmblue-50/80 border border-warmblue-100 p-4" ${!supabaseConfig.connected ? "open" : ""}>
+              <summary class="cursor-pointer font-display font-bold text-sm text-warmblue-900">
+                Konfigurasi Proyek Supabase (${supabaseConfig.connected ? "Tersambung" : "Belum Diisi"})
+              </summary>
+              <div class="mt-3 space-y-3">
+                <div>
+                  <label for="sb-url-input" class="block text-xs font-bold text-ink-700 mb-1">Supabase Project URL</label>
+                  <input id="sb-url-input" type="url" value="${escapeHtml(supabaseConfig.url)}" placeholder="https://xyzcompany.supabase.co" class="w-full min-h-[42px] px-3 py-2 rounded-xl bg-white border border-warmblue-200 text-xs" />
+                </div>
+                <div>
+                  <label for="sb-key-input" class="block text-xs font-bold text-ink-700 mb-1">Supabase Anon Public Key</label>
+                  <input id="sb-key-input" type="password" value="${escapeHtml(supabaseConfig.anonKey)}" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..." class="w-full min-h-[42px] px-3 py-2 rounded-xl bg-white border border-warmblue-200 text-xs" />
+                </div>
+                <button type="button" onclick="handleConnectSupabase()" class="min-h-[42px] w-full px-4 py-2 rounded-xl bg-warmblue-700 hover:bg-warmblue-800 text-white font-display font-bold text-xs">
+                  Simpan Koneksi Supabase
+                </button>
+              </div>
+            </details>
+
+            <!-- Form Login Supabase Auth -->
+            <form onsubmit="handleSupabaseLogin(event)" class="space-y-4">
+              <div>
+                <label for="admin-email" class="block text-sm font-bold text-ink-800 mb-1">Email Admin</label>
+                <input id="admin-email" type="email" required placeholder="admin@paudkasihibu.my.id" class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-white border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label for="admin-password" class="block text-sm font-bold text-ink-800 mb-1">Kata Sandi</label>
+                <input id="admin-password" type="password" required placeholder="••••••••" class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-white border border-warmblue-200 text-sm" />
+              </div>
+              <button type="submit" class="min-h-[48px] w-full px-5 py-3 rounded-2xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm transition-colors">
+                Masuk dengan Supabase Auth
+              </button>
+            </form>
+
+            <div class="pt-4 border-t border-warmblue-100 text-center space-y-2.5">
+              <p class="text-xs text-ink-500">Ingin mencoba tampilan CMS terlebih dahulu tanpa server?</p>
+              <button type="button" onclick="enterDemoAdminMode()" class="min-h-[44px] w-full px-4 py-2.5 rounded-xl bg-honey-50 hover:bg-honey-100 text-honey-600 border border-honey-200 font-display font-bold text-sm">
+                Masuk Mode Simulasi Admin
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleConnectSupabase() {
+      const url = document.getElementById("sb-url-input").value.trim();
+      const key = document.getElementById("sb-key-input").value.trim();
+      if (!url || !key) {
+        showToast("Masukkan Project URL dan Anon Key Supabase terlebih dahulu.", "error");
+        return;
+      }
+      if (initSupabase(url, key)) {
+        showToast("Koneksi Supabase berhasil disimpan. Silakan masuk dengan akun admin.", "success");
+        syncFromSupabase();
+      } else {
+        showToast("Format URL atau Key Supabase tidak valid.", "error");
+      }
+    }
+
+    async function handleSupabaseLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById("admin-email").value.trim();
+      const password = document.getElementById("admin-password").value;
+
+      if (!supabaseClient) {
+        showToast("Silakan isi Supabase URL & Anon Key di atas, atau gunakan Mode Simulasi Admin.", "error");
+        return;
+      }
+
+      try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        adminSession = {
+          authenticated: true,
+          email: data.user?.email || email,
+          isDemoMode: false
+        };
+        showToast("Berhasil masuk melalui Supabase Authentication.", "success");
+        await syncFromSupabase();
+        renderRoute();
+      } catch (err) {
+        showToast(`Gagal masuk: ${err.message || "Periksa email dan kata sandi Anda."}`, "error");
+      }
+    }
+
+    function enterDemoAdminMode() {
+      adminSession = {
+        authenticated: true,
+        email: "admin-simulasi@paudkasihibu.my.id",
+        isDemoMode: true
+      };
+      showToast("Masuk ke Mode Simulasi Admin. Perubahan tampil langsung di sesi ini.", "info");
+      renderRoute();
+    }
+
+    async function handleAdminLogout() {
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          await supabaseClient.auth.signOut();
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+      adminSession = { authenticated: false, email: "", isDemoMode: false };
+      showToast("Anda telah keluar dari panel admin.", "info");
+      renderRoute();
+    }
+
+    function switchAdminTab(tabId) {
+      activeAdminTab = tabId;
+      renderRoute();
+    }
+
+    // Tab 1 Admin: Pengaturan Umum, Status Pendaftaran, Google Form & Peta
+    function renderAdminSettingsTab() {
+      const s = appState.settings;
+      return `
+        <form onsubmit="saveAdminSettings(event)" class="bg-white rounded-3xl p-6 sm:p-8 border border-warmblue-100 shadow-card space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-warmblue-100 pb-5">
+            <div>
+              <h2 class="font-display font-bold text-xl text-ink-900">Pengaturan Sekolah & Status Pendaftaran</h2>
+              <p class="text-sm text-ink-600">Perubahan akan langsung memperbarui spanduk beranda, halaman pendaftaran, dan kontak.</p>
+            </div>
+            <button type="submit" class="min-h-[46px] px-6 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm shrink-0">
+              Simpan Perubahan
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="p-4 rounded-2xl bg-warmblue-50 border border-warmblue-200 flex items-center justify-between gap-4">
+              <div>
+                <span class="font-display font-bold text-sm text-ink-900 block">Status Pendaftaran Siswa Baru</span>
+                <span class="text-xs text-ink-600">Mengubah spanduk pengumuman di bagian atas situs</span>
+              </div>
+              <select id="set-reg-open" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-white border border-warmblue-200 font-bold text-sm">
+                <option value="true" ${s.registrationOpen ? "selected" : ""}>Dibuka</option>
+                <option value="false" ${!s.registrationOpen ? "selected" : ""}>Ditutup</option>
+              </select>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 flex items-center justify-between gap-4">
+              <div>
+                <span class="font-display font-bold text-sm text-ink-900 block">Mode Pemeliharaan (W-12)</span>
+                <span class="text-xs text-ink-600">Tampilkan halaman pemeliharaan untuk pengunjung publik</span>
+              </div>
+              <select id="set-maintenance" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-white border border-amber-200 font-bold text-sm">
+                <option value="false" ${!s.maintenanceMode ? "selected" : ""}>Nonaktif (Publik Normal)</option>
+                <option value="true" ${s.maintenanceMode ? "selected" : ""}>Aktif (Pemeliharaan)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Teks Spanduk Pendaftaran</label>
+              <input id="set-banner-text" type="text" value="${escapeHtml(s.registrationBannerText)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Tahun Ajaran Aktif</label>
+              <input id="set-academic-year" type="text" value="${escapeHtml(s.academicYear)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Nomor WhatsApp Admin (Format 628...)</label>
+              <input id="set-wa-number" type="text" value="${escapeHtml(s.whatsappNumber)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Pesan Awal WhatsApp Otomatis</label>
+              <input id="set-wa-msg" type="text" value="${escapeHtml(s.whatsappDefaultMsg)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Tautan Google Form Tersemat (Embed URL)</label>
+              <input id="set-gform-embed" type="url" value="${escapeHtml(s.googleFormEmbedUrl)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Tautan Google Form Tab Baru (Direct URL)</label>
+              <input id="set-gform-direct" type="url" value="${escapeHtml(s.googleFormDirectUrl)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Tautan Subdomain Portal Akademik</label>
+              <input id="set-portal-url" type="url" value="${escapeHtml(s.portalUrl)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-ink-800 mb-1">Jam Operasional Sekolah</label>
+              <input id="set-hours" type="text" value="${escapeHtml(s.operationalHours)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+
+            <div class="md:col-span-2">
+              <label class="block text-sm font-bold text-ink-800 mb-1">Alamat Lengkap Sekolah</label>
+              <input id="set-address" type="text" value="${escapeHtml(s.address)}" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+            </div>
+          </div>
+        </form>
+      `;
+    }
+
+    async function saveAdminSettings(event) {
+      event.preventDefault();
+      const updated = {
+        ...appState.settings,
+        registrationOpen: document.getElementById("set-reg-open").value === "true",
+        maintenanceMode: document.getElementById("set-maintenance").value === "true",
+        registrationBannerText: document.getElementById("set-banner-text").value.trim(),
+        academicYear: document.getElementById("set-academic-year").value.trim(),
+        whatsappNumber: document.getElementById("set-wa-number").value.trim(),
+        whatsappDefaultMsg: document.getElementById("set-wa-msg").value.trim(),
+        googleFormEmbedUrl: document.getElementById("set-gform-embed").value.trim(),
+        googleFormDirectUrl: document.getElementById("set-gform-direct").value.trim(),
+        portalUrl: document.getElementById("set-portal-url").value.trim(),
+        operationalHours: document.getElementById("set-hours").value.trim(),
+        address: document.getElementById("set-address").value.trim()
+      };
+
+      appState.settings = updated;
+      updateGlobalChrome();
+
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          const { error } = await supabaseClient.from("school_settings").upsert(mapSettingsToDb(updated));
+          if (error) throw error;
+          showToast("Pengaturan berhasil disimpan ke database Supabase.", "success");
+        } catch (err) {
+          showToast(`Tersimpan lokal, namun gagal sinkron ke Supabase: ${err.message}`, "error");
+        }
+      } else {
+        showToast("Pengaturan berhasil diperbarui (Mode Simulasi).", "success");
+      }
+    }
+
+    // Tab 2 Admin: Guru & Staf
+    function renderAdminTeachersTab() {
+      return `
+        <div class="space-y-6">
+          <form onsubmit="addTeacherItem(event)" class="bg-white rounded-3xl p-6 sm:p-8 border border-warmblue-100 shadow-card space-y-4">
+            <h2 class="font-display font-bold text-xl text-ink-900">Tambah Data Guru atau Staf</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Nama Lengkap & Gelar</label>
+                <input id="new-teacher-name" type="text" required placeholder="Contoh: Ibu Kartika Putri, S.Pd." class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Jabatan</label>
+                <input id="new-teacher-role" type="text" required placeholder="Contoh: Wali Kelas TK A" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">URL Foto Profil (WebP/JPG)</label>
+                <input id="new-teacher-photo" type="url" placeholder="https://..." class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Kutipan Singkat Pendidikan</label>
+                <input id="new-teacher-quote" type="text" required placeholder="Kutipan hangat dari guru..." class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+            </div>
+            <button type="submit" class="min-h-[44px] px-6 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm">
+              Tambah Guru
+            </button>
+          </form>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${appState.teachers.map(t => `
+              <div class="bg-white p-5 rounded-2xl border border-warmblue-100 shadow-card flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5">
+                  <img src="${escapeHtml(t.photoUrl)}" onerror="this.onerror=null;this.src='${getFallbackImage(t.name)}';" alt="${escapeHtml(t.name)}" class="w-14 h-14 rounded-2xl object-cover bg-warmblue-100 shrink-0" />
+                  <div>
+                    <h3 class="font-display font-bold text-base text-ink-900">${escapeHtml(t.name)}</h3>
+                    <p class="text-xs font-bold text-warmblue-700">${escapeHtml(t.role)}</p>
+                    ${t.isExample ? '<span class="inline-block mt-1 text-[11px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Data Contoh</span>' : ''}
+                  </div>
+                </div>
+                <button type="button" onclick="deleteTeacherItem('${t.id}')" class="min-h-[40px] px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold shrink-0">
+                  Hapus
+                </button>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    async function addTeacherItem(event) {
+      event.preventDefault();
+      const name = document.getElementById("new-teacher-name").value.trim();
+      const role = document.getElementById("new-teacher-role").value.trim();
+      const photoUrl = document.getElementById("new-teacher-photo").value.trim() || getFallbackImage(name);
+      const quote = document.getElementById("new-teacher-quote").value.trim();
+
+      const newItem = {
+        id: crypto.randomUUID ? crypto.randomUUID() : "guru-" + Date.now(),
+        name,
+        role,
+        photoUrl,
+        quote,
+        isExample: false
+      };
+
+      appState.teachers.push(newItem);
+
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          const { error } = await supabaseClient.from("teachers").insert({
+            id: newItem.id,
+            name: newItem.name,
+            role: newItem.role,
+            photo_url: newItem.photoUrl,
+            quote: newItem.quote,
+            is_example: false
+          });
+          if (error) throw error;
+          showToast("Data guru berhasil ditambahkan ke Supabase.", "success");
+        } catch (err) {
+          showToast(`Gagal menyimpan ke Supabase: ${err.message}`, "error");
+        }
+      } else {
+        showToast("Data guru berhasil ditambahkan.", "success");
+      }
+      renderRoute();
+    }
+
+    async function deleteTeacherItem(id) {
+      appState.teachers = appState.teachers.filter(t => t.id !== id);
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          await supabaseClient.from("teachers").delete().eq("id", id);
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+      showToast("Data guru dihapus.", "info");
+      renderRoute();
+    }
+
+    // Tab 3 Admin: Program & Biaya
+    function renderAdminProgramsTab() {
+      return `
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-warmblue-100 shadow-card space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-xl text-ink-900">Kelola Biaya & Jadwal Kelompok Usia</h2>
+            <p class="text-sm text-ink-600">Perbarui rincian biaya pangkal, SPP bulanan, dan jadwal agar sesuai brosur resmi sekolah.</p>
+          </div>
+
+          <div class="space-y-5">
+            ${appState.programs.map((p, idx) => `
+              <div class="p-5 rounded-2xl bg-warmblue-50/70 border border-warmblue-100 space-y-4">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display font-bold text-lg text-ink-900">${escapeHtml(p.name)} (${escapeHtml(p.ageRange)})</h3>
+                  ${p.isExample ? '<span class="text-xs font-bold px-2.5 py-0.5 rounded bg-amber-100 text-amber-800">Data Contoh</span>' : ''}
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-xs font-bold text-ink-700 mb-1">Jadwal Belajar</label>
+                    <input id="prog-sched-${idx}" type="text" value="${escapeHtml(p.schedule)}" class="w-full min-h-[42px] px-3 py-2 rounded-xl bg-white border border-warmblue-200 text-sm" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-ink-700 mb-1">Uang Pangkal</label>
+                    <input id="prog-regfee-${idx}" type="text" value="${escapeHtml(p.registrationFee)}" class="w-full min-h-[42px] px-3 py-2 rounded-xl bg-white border border-warmblue-200 text-sm" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-ink-700 mb-1">SPP Bulanan</label>
+                    <input id="prog-monfee-${idx}" type="text" value="${escapeHtml(p.monthlyFee)}" class="w-full min-h-[42px] px-3 py-2 rounded-xl bg-white border border-warmblue-200 text-sm" />
+                  </div>
+                </div>
+                <button type="button" onclick="saveProgramRow(${idx})" class="min-h-[42px] px-4 py-2 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-xs">
+                  Simpan ${escapeHtml(p.name)}
+                </button>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    async function saveProgramRow(idx) {
+      const p = appState.programs[idx];
+      p.schedule = document.getElementById(`prog-sched-${idx}`).value.trim();
+      p.registrationFee = document.getElementById(`prog-regfee-${idx}`).value.trim();
+      p.monthlyFee = document.getElementById(`prog-monfee-${idx}`).value.trim();
+      p.isExample = false;
+
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          const { error } = await supabaseClient.from("programs").upsert({
+            id: p.id,
+            name: p.name,
+            age_range: p.ageRange,
+            schedule: p.schedule,
+            description: p.description,
+            highlights: p.highlights,
+            registration_fee: p.registrationFee,
+            monthly_fee: p.monthlyFee,
+            is_example: false
+          });
+          if (error) throw error;
+          showToast(`Program ${p.name} disimpan ke Supabase.`, "success");
+        } catch (err) {
+          showToast(`Gagal menyimpan ke Supabase: ${err.message}`, "error");
+        }
+      } else {
+        showToast(`Program ${p.name} berhasil diperbarui.`, "success");
+      }
+      renderRoute();
+    }
+
+    // Tab 4 Admin: Galeri Kegiatan
+    function renderAdminGalleryTab() {
+      return `
+        <div class="space-y-6">
+          <form onsubmit="addGalleryItem(event)" class="bg-white rounded-3xl p-6 sm:p-8 border border-warmblue-100 shadow-card space-y-4">
+            <h2 class="font-display font-bold text-xl text-ink-900">Tambah Foto Galeri Kegiatan</h2>
+            <p class="text-xs sm:text-sm text-ink-600">Pastikan foto anak telah mendapatkan izin tertulis orang tua sesuai kebijakan privasi sekolah.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Judul Kegiatan</label>
+                <input id="gal-title" type="text" required placeholder="Contoh: Kunjungan Edukasi ke Perpustakaan" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Kategori</label>
+                <input id="gal-cat" type="text" required placeholder="Contoh: Kegiatan Luar Kelas" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">URL Gambar (WebP/JPG)</label>
+                <input id="gal-url" type="url" required placeholder="https://..." class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Deskripsi Singkat</label>
+                <input id="gal-desc" type="text" required placeholder="Keterangan singkat foto..." class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+            </div>
+            <button type="submit" class="min-h-[44px] px-6 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm">
+              Tambah ke Galeri
+            </button>
+          </form>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${appState.gallery.map(g => `
+              <div class="bg-white rounded-2xl overflow-hidden border border-warmblue-100 shadow-card flex flex-col justify-between">
+                <img src="${escapeHtml(g.imageUrl)}" onerror="this.onerror=null;this.src='${getFallbackImage(g.title)}';" alt="${escapeHtml(g.title)}" class="w-full h-40 object-cover bg-warmblue-100" />
+                <div class="p-4 flex items-center justify-between gap-2">
+                  <div>
+                    <span class="text-xs font-bold text-warmblue-700">${escapeHtml(g.category)}</span>
+                    <h3 class="font-display font-bold text-sm text-ink-900 line-clamp-1">${escapeHtml(g.title)}</h3>
+                  </div>
+                  <button type="button" onclick="deleteGalleryItem('${g.id}')" class="min-h-[38px] px-3 py-1 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold shrink-0">
+                    Hapus
+                  </button>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    async function addGalleryItem(event) {
+      event.preventDefault();
+      const item = {
+        id: crypto.randomUUID ? crypto.randomUUID() : "gal-" + Date.now(),
+        title: document.getElementById("gal-title").value.trim(),
+        category: document.getElementById("gal-cat").value.trim(),
+        imageUrl: document.getElementById("gal-url").value.trim(),
+        description: document.getElementById("gal-desc").value.trim(),
+        isExample: false
+      };
+      appState.gallery.unshift(item);
+
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          const { error } = await supabaseClient.from("gallery").insert({
+            id: item.id,
+            title: item.title,
+            category: item.category,
+            image_url: item.imageUrl,
+            description: item.description,
+            is_example: false
+          });
+          if (error) throw error;
+          showToast("Foto berhasil ditambahkan ke Supabase.", "success");
+        } catch (err) {
+          showToast(`Gagal menyimpan ke Supabase: ${err.message}`, "error");
+        }
+      } else {
+        showToast("Foto ditambahkan ke galeri.", "success");
+      }
+      renderRoute();
+    }
+
+    async function deleteGalleryItem(id) {
+      appState.gallery = appState.gallery.filter(g => g.id !== id);
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          await supabaseClient.from("gallery").delete().eq("id", id);
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+      showToast("Foto dihapus dari galeri.", "info");
+      renderRoute();
+    }
+
+    // Tab 5 Admin: FAQ & Testimoni
+    function renderAdminFaqsTab() {
+      return `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <form onsubmit="addFaqItem(event)" class="bg-white rounded-3xl p-6 border border-warmblue-100 shadow-card space-y-4">
+              <h2 class="font-display font-bold text-xl text-ink-900">Tambah Pertanyaan FAQ</h2>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Pertanyaan</label>
+                <input id="faq-q" type="text" required placeholder="Tulis pertanyaan orang tua..." class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Jawaban</label>
+                <textarea id="faq-a" rows="3" required placeholder="Tulis jawaban jelas..." class="w-full px-4 py-2 rounded-xl border border-warmblue-200 text-sm"></textarea>
+              </div>
+              <button type="submit" class="min-h-[44px] px-5 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm">
+                Simpan FAQ
+              </button>
+            </form>
+
+            <div class="space-y-3">
+              ${appState.faqs.map(f => `
+                <div class="bg-white p-4 rounded-2xl border border-warmblue-100 flex items-start justify-between gap-3">
+                  <div>
+                    <h3 class="font-display font-bold text-sm text-ink-900">${escapeHtml(f.question)}</h3>
+                    <p class="text-xs text-ink-600 mt-1">${escapeHtml(f.answer)}</p>
+                  </div>
+                  <button type="button" onclick="deleteFaqItem('${f.id}')" class="min-h-[36px] px-3 py-1 rounded-xl bg-rose-50 text-rose-700 text-xs font-bold shrink-0">Hapus</button>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <form onsubmit="addTestimonialItem(event)" class="bg-white rounded-3xl p-6 border border-warmblue-100 shadow-card space-y-4">
+              <h2 class="font-display font-bold text-xl text-ink-900">Tambah Testimoni Orang Tua (W-11)</h2>
+              <p class="text-xs text-ink-600">Gunakan inisial untuk menjaga privasi dan pastikan sudah ada izin tertulis.</p>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Nama Samaran Orang Tua</label>
+                <input id="testi-name" type="text" required placeholder="Contoh: Bunda S*** (Orang Tua Ananda R***)" class="w-full min-h-[44px] px-4 py-2 rounded-xl border border-warmblue-200 text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-ink-800 mb-1">Kutipan Testimoni</label>
+                <textarea id="testi-quote" rows="3" required placeholder="Testimoni orang tua..." class="w-full px-4 py-2 rounded-xl border border-warmblue-200 text-sm"></textarea>
+              </div>
+              <button type="submit" class="min-h-[44px] px-5 py-2.5 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-sm">
+                Simpan Testimoni
+              </button>
+            </form>
+
+            <div class="space-y-3">
+              ${appState.testimonials.map(t => `
+                <div class="bg-white p-4 rounded-2xl border border-warmblue-100 flex items-start justify-between gap-3">
+                  <div>
+                    <h3 class="font-display font-bold text-sm text-ink-900">${escapeHtml(t.parentName)}</h3>
+                    <p class="text-xs text-ink-600 italic mt-1">"${escapeHtml(t.quote)}"</p>
+                  </div>
+                  <button type="button" onclick="deleteTestimonialItem('${t.id}')" class="min-h-[36px] px-3 py-1 rounded-xl bg-rose-50 text-rose-700 text-xs font-bold shrink-0">Hapus</button>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function addFaqItem(event) {
+      event.preventDefault();
+      const item = {
+        id: crypto.randomUUID ? crypto.randomUUID() : "faq-" + Date.now(),
+        question: document.getElementById("faq-q").value.trim(),
+        answer: document.getElementById("faq-a").value.trim(),
+        isExample: false
+      };
+      appState.faqs.push(item);
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          await supabaseClient.from("faqs").insert({ id: item.id, question: item.question, answer: item.answer, is_example: false });
+        } catch (e) { console.warn(e); }
+      }
+      showToast("FAQ berhasil ditambahkan.", "success");
+      renderRoute();
+    }
+
+    async function deleteFaqItem(id) {
+      appState.faqs = appState.faqs.filter(f => f.id !== id);
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try { await supabaseClient.from("faqs").delete().eq("id", id); } catch (e) { console.warn(e); }
+      }
+      showToast("FAQ dihapus.", "info");
+      renderRoute();
+    }
+
+    async function addTestimonialItem(event) {
+      event.preventDefault();
+      const item = {
+        id: crypto.randomUUID ? crypto.randomUUID() : "testi-" + Date.now(),
+        parentName: document.getElementById("testi-name").value.trim(),
+        quote: document.getElementById("testi-quote").value.trim(),
+        consentNote: "Izin tertulis orang tua • Nama disamarkan (W-11)",
+        isExample: false
+      };
+      appState.testimonials.push(item);
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try {
+          await supabaseClient.from("testimonials").insert({
+            id: item.id,
+            parent_name: item.parentName,
+            quote: item.quote,
+            consent_note: item.consentNote,
+            is_example: false
+          });
+        } catch (e) { console.warn(e); }
+      }
+      showToast("Testimoni berhasil ditambahkan.", "success");
+      renderRoute();
+    }
+
+    async function deleteTestimonialItem(id) {
+      appState.testimonials = appState.testimonials.filter(t => t.id !== id);
+      if (supabaseClient && !adminSession.isDemoMode) {
+        try { await supabaseClient.from("testimonials").delete().eq("id", id); } catch (e) { console.warn(e); }
+      }
+      showToast("Testimoni dihapus.", "info");
+      renderRoute();
+    }
+
+    // Tab 6 Admin: Skema SQL Supabase & Konfigurasi Hosting Vercel
+    function renderAdminDeployTab() {
+      const sqlSchema = `-- Jalankan skrip ini di SQL Editor Supabase Anda
+create table if not exists public.school_settings (
+  id int primary key default 1,
+  school_name text,
+  tagline text,
+  academic_year text,
+  registration_open boolean default true,
+  registration_banner_text text,
+  whatsapp_number text,
+  whatsapp_default_msg text,
+  phone_display text,
+  email text,
+  address text,
+  operational_hours text,
+  google_form_embed_url text,
+  google_form_direct_url text,
+  google_maps_embed_url text,
+  google_maps_route_url text,
+  portal_url text,
+  maintenance_mode boolean default false
+);
+
+create table if not exists public.teachers (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  role text not null,
+  quote text,
+  photo_url text,
+  is_example boolean default false,
+  created_at timestamptz default now()
+);
+
+create table if not exists public.programs (
+  id text primary key,
+  name text not null,
+  age_range text,
+  schedule text,
+  description text,
+  highlights jsonb default '[]'::jsonb,
+  registration_fee text,
+  monthly_fee text,
+  is_example boolean default false,
+  created_at timestamptz default now()
+);
+
+create table if not exists public.gallery (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  category text,
+  description text,
+  image_url text,
+  is_example boolean default false,
+  created_at timestamptz default now()
+);
+
+create table if not exists public.faqs (
+  id uuid primary key default gen_random_uuid(),
+  question text not null,
+  answer text not null,
+  is_example boolean default false,
+  created_at timestamptz default now()
+);
+
+create table if not exists public.testimonials (
+  id uuid primary key default gen_random_uuid(),
+  parent_name text not null,
+  quote text not null,
+  consent_note text,
+  is_example boolean default false,
+  created_at timestamptz default now()
+);
+
+-- Aktifkan Row Level Security (Publik hanya bisa baca, Admin terautentikasi bisa ubah)
+alter table public.school_settings enable row level security;
+alter table public.teachers enable row level security;
+alter table public.programs enable row level security;
+alter table public.gallery enable row level security;
+alter table public.faqs enable row level security;
+alter table public.testimonials enable row level security;
+
+create policy "Publik baca settings" on public.school_settings for select using (true);
+create policy "Admin ubah settings" on public.school_settings for all using (auth.role() = 'authenticated');
+
+create policy "Publik baca teachers" on public.teachers for select using (true);
+create policy "Admin ubah teachers" on public.teachers for all using (auth.role() = 'authenticated');
+
+create policy "Publik baca programs" on public.programs for select using (true);
+create policy "Admin ubah programs" on public.programs for all using (auth.role() = 'authenticated');
+
+create policy "Publik baca gallery" on public.gallery for select using (true);
+create policy "Admin ubah gallery" on public.gallery for all using (auth.role() = 'authenticated');
+
+create policy "Publik baca faqs" on public.faqs for select using (true);
+create policy "Admin ubah faqs" on public.faqs for all using (auth.role() = 'authenticated');
+
+create policy "Publik baca testimonials" on public.testimonials for select using (true);
+create policy "Admin ubah testimonials" on public.testimonials for all using (auth.role() = 'authenticated');`;
+
+      const vercelConfig = `{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}`;
+
+      return `
+        <div class="space-y-6">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-warmblue-100 shadow-card space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h2 class="font-display font-bold text-xl text-ink-900">1. Skema Tabel & Kebijakan Keamanan Supabase (SQL)</h2>
+                <p class="text-sm text-ink-600">Salin dan jalankan di menu <strong>SQL Editor</strong> pada dasbor Supabase Anda.</p>
+              </div>
+              <button type="button" id="copy-sql-btn" class="min-h-[44px] px-4 py-2 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-xs shrink-0">
+                Salin Skrip SQL
+              </button>
+            </div>
+            <pre id="sql-code-block" class="bg-ink-900 text-warmblue-100 p-4 rounded-2xl text-xs overflow-x-auto leading-relaxed max-h-72">${escapeHtml(sqlSchema)}</pre>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-warmblue-100 shadow-card space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h2 class="font-display font-bold text-xl text-ink-900">2. Konfigurasi Hosting Vercel (vercel.json)</h2>
+                <p class="text-sm text-ink-600">Simpan file <code>index.html</code> dan <code>vercel.json</code> di repositori GitHub, lalu hubungkan ke Vercel dengan domain <code>paudkasihibu.my.id</code>.</p>
+              </div>
+              <button type="button" id="copy-vercel-btn" class="min-h-[44px] px-4 py-2 rounded-xl bg-warmblue-600 hover:bg-warmblue-700 text-white font-display font-bold text-xs shrink-0">
+                Salin vercel.json
+              </button>
+            </div>
+            <pre id="vercel-code-block" class="bg-ink-900 text-warmblue-100 p-4 rounded-2xl text-xs overflow-x-auto leading-relaxed">${escapeHtml(vercelConfig)}</pre>
+            <div class="p-4 rounded-2xl bg-warmblue-50 border border-warmblue-100 text-xs sm:text-sm text-ink-700 space-y-1">
+              <p class="font-bold text-warmblue-900">Catatan DNS Subdomain Portal (PRD Bagian 7):</p>
+              <p>Arahkan domain utama <code>paudkasihibu.my.id</code> ke Vercel (A Record / CNAME sesuai instruksi Vercel), dan tambahkan satu catatan DNS terpisah untuk subdomain <code>portal.paudkasihibu.my.id</code> menuju server portal akademik.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * ============================================================================
+     * INISIALISASI APLIKASI & EVENT LISTENER GLOBAL
+     * ============================================================================
+     */
+    window.addEventListener("hashchange", renderRoute);
+
+    // Tutup modal atau navigasi lightbox dengan keyboard (Aksesibilitas)
+    window.addEventListener("keydown", (e) => {
+      const lightbox = document.getElementById("lightbox-modal");
+      const portalModal = document.getElementById("portal-modal");
+      if (lightbox && !lightbox.classList.contains("hidden")) {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") navigateLightbox(-1);
+        if (e.key === "ArrowRight") navigateLightbox(1);
+      }
+      if (portalModal && !portalModal.classList.contains("hidden")) {
+        if (e.key === "Escape") closePortalModal();
+      }
+    });
+
+    // Delegasi tombol salin pada tab Setup Supabase & Vercel
+    document.addEventListener("click", (e) => {
+      if (e.target && e.target.id === "copy-sql-btn") {
+        const sqlText = document.getElementById("sql-code-block")?.textContent || "";
+        copyTextToClipboard(sqlText, "Skrip SQL Supabase");
+      }
+      if (e.target && e.target.id === "copy-vercel-btn") {
+        const vercelText = document.getElementById("vercel-code-block")?.textContent || "";
+        copyTextToClipboard(vercelText, "Konfigurasi vercel.json");
+      }
+    });
+
+    window.onload = async function () {
+      updateGlobalChrome();
+      if (ENV_SUPABASE_URL && ENV_SUPABASE_ANON_KEY) {
+        initSupabase(ENV_SUPABASE_URL, ENV_SUPABASE_ANON_KEY);
+        await syncFromSupabase();
+      }
+      renderRoute();
+    };
+  </script>
+</body>
+</html>
