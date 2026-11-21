@@ -163,13 +163,10 @@
 
         <button onclick="openPortalModal()" class="nav-link px-3.5 py-2 rounded-lg transition-colors">
           E-Raport
-        </button>
-      </nav>
-
-      <!-- Kanan: Tombol "Login" & Tombol Biru "Kontak ↗" (Persis Referensi Gambar) -->
+      <!-- Kanan: Tombol "Login" yang Jelas & Tombol Biru "Kontak ↗" -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <button onclick="openPortalModal()" class="min-h-[42px] px-3 py-2 rounded-lg text-sekunder hover:text-primer hover:bg-birulembut font-semibold text-sm inline-flex items-center gap-1.5 transition-colors">
-          <i data-lucide="user" class="w-4 h-4 text-primer"></i>
+        <button onclick="openPortalModal()" class="min-h-[42px] px-3.5 sm:px-4 py-2 rounded-lg border-2 border-primer bg-birulembut hover:bg-primer text-primer hover:text-putih font-bold text-sm inline-flex items-center gap-1.5 shadow-2xs transition-colors">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
           <span>Login</span>
         </button>
 
@@ -199,7 +196,10 @@
         <button data-nav="spmb" onclick="navigateTo('spmb')" class="mobile-nav-link min-h-[44px] px-3.5 py-2 rounded-lg text-left text-sm font-bold text-primer hover:bg-birulembut">SPMB (Pendaftaran)</button>
         <button data-nav="faq" onclick="navigateTo('faq')" class="mobile-nav-link min-h-[44px] px-3.5 py-2 rounded-lg text-left text-sm font-semibold text-teks hover:bg-birulembut">FAQ</button>
         <button data-nav="kontak" onclick="navigateTo('kontak')" class="mobile-nav-link min-h-[44px] px-3.5 py-2 rounded-lg text-left text-sm font-semibold text-teks hover:bg-birulembut">Kontak & Lokasi</button>
-        <button onclick="openPortalModal()" class="min-h-[44px] px-3.5 py-2 rounded-lg text-left text-sm font-bold text-primer hover:bg-birulembut">E-Raport / Login Portal</button>
+        <button onclick="openPortalModal()" class="min-h-[44px] px-3.5 py-2 rounded-lg border-2 border-primer bg-birulembut text-primer font-bold text-sm inline-flex items-center gap-2 mt-1 sm:mt-0">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
+          <span>Login E-Raport / Portal</span>
+        </button>
       </div>
     </div>
   </header>
@@ -374,8 +374,8 @@
     const SCHOOL_DATA = {
       spmb: {
         dibuka: true,
-        googleFormEmbedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfD_contoh_form_spmb_paud_kasih_ibu/viewform?embedded=true',
-        googleFormDirectUrl: 'https://forms.google.com',
+        googleFormEmbedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSddsHgz4f42FK8_M6NAAK5EU1HMdLKA6n_1WPP7rc-u5hSHuA/viewform?embedded=true',
+        googleFormDirectUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSddsHgz4f42FK8_M6NAAK5EU1HMdLKA6n_1WPP7rc-u5hSHuA/viewform',
         whatsappNumber: '6281234567890'
       },
 
@@ -1442,102 +1442,23 @@
                 <strong>Pemberitahuan Privasi (UU No. 27 Tahun 2022):</strong> Data yang dikirimkan melalui formulir SPMB hanya digunakan untuk keperluan penerimaan murid baru PAUD Kasih Ibu.
               </div>
 
-              <div class="w-full rounded-xl overflow-hidden border border-garis bg-kanvas">
-                <div class="bg-birulembut px-4 py-2.5 border-b border-garis flex flex-wrap items-center justify-between gap-2 text-xs text-teks">
-                  <span>Pratinjau formulir SPMB (siap disematkan dengan tautan Google Form sekolah).</span>
-                  <button onclick="toggleFormPreviewMode()" id="toggle-form-btn" class="text-primer font-bold underline">
-                    Lihat Tampilan Iframe Google Form
-                  </button>
-                </div>
-
-                <div id="simulated-gform" class="p-5 sm:p-8 max-w-2xl mx-auto space-y-4">
-                  <div class="border-t-8 border-primer bg-putih p-5 rounded-xl border border-garis">
-                    <h3 class="font-extrabold text-lg text-teks">Formulir SPMB PAUD Kasih Ibu</h3>
-                    <p class="text-xs text-sekunder mt-1">Isi biodata calon peserta didik baru di bawah ini.</p>
-                  </div>
-
-                  <form onsubmit="handleSimulatedFormSubmit(event)" class="space-y-4">
-                    <div class="bg-putih p-4 rounded-xl border border-garis">
-                      <label class="block text-sm font-bold text-teks mb-1.5">Nama Lengkap Calon Murid *</label>
-                      <input type="text" required placeholder="Contoh: Arkanza Putra Pratama" class="w-full min-h-[44px] px-3.5 py-2 rounded-lg border border-garis text-sm focus:border-primer focus:outline-none" />
-                    </div>
-
-                    <div class="bg-putih p-4 rounded-xl border border-garis">
-                      <label class="block text-sm font-bold text-teks mb-1.5">Kelompok Belajar *</label>
-                      <select required class="w-full min-h-[44px] px-3.5 py-2 rounded-lg border border-garis text-sm bg-putih focus:border-primer focus:outline-none">
-                        <option value="">-- Pilih Kelompok --</option>
-                        <option value="KB">Kelompok Bermain (KB)</option>
-                        <option value="TK A">Kelompok A (TK A)</option>
-                        <option value="TK B">Kelompok B (TK B)</option>
-                      </select>
-                    </div>
-
-                    <div class="bg-putih p-4 rounded-xl border border-garis">
-                      <label class="block text-sm font-bold text-teks mb-1.5">Nama Orang Tua / Wali *</label>
-                      <input type="text" required placeholder="Contoh: Bunda Rina" class="w-full min-h-[44px] px-3.5 py-2 rounded-lg border border-garis text-sm focus:border-primer focus:outline-none" />
-                    </div>
-
-                    <div class="bg-putih p-4 rounded-xl border border-garis">
-                      <label class="block text-sm font-bold text-teks mb-1.5">Nomor WhatsApp Aktif *</label>
-                      <input type="tel" required placeholder="Contoh: 081234567890" class="w-full min-h-[44px] px-3.5 py-2 rounded-lg border border-garis text-sm focus:border-primer focus:outline-none" />
-                    </div>
-
-                    <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-                      <button type="submit" class="min-h-[46px] px-6 py-2.5 rounded-lg bg-primer hover:bg-primergelap text-putih font-bold text-sm">
-                        Kirim Formulir SPMB
-                      </button>
-                      <a href="${SCHOOL_DATA.spmb.googleFormDirectUrl}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-primer hover:underline">
-                        Buka formulir di tab baru
-                      </a>
-                    </div>
-                  </form>
-
-                  <div id="simulated-gform-success" class="hidden p-5 rounded-xl bg-birulembut border border-biruborder text-teks space-y-2">
-                    <p class="text-sukses font-extrabold">Terima Kasih! Pendaftaran SPMB Terkirim</p>
-                    <p class="text-sm">
-                      Data calon murid telah diterima. Panitia SPMB PAUD Kasih Ibu akan menghubungi nomor WhatsApp Anda.
-                    </p>
-                    <button onclick="navigateTo('beranda')" class="text-sm font-bold text-primer hover:underline pt-1">
-                      Kembali ke Beranda
-                    </button>
-                  </div>
-                </div>
-
-                <div id="real-gform-iframe" class="hidden">
-                  <iframe
-                    src="${SCHOOL_DATA.spmb.googleFormEmbedUrl}"
-                    title="Formulir SPMB PAUD Kasih Ibu"
-                    class="w-full h-[640px] border-0"
-                    loading="lazy"
-                  >Memuat formulir SPMB...</iframe>
-                </div>
+              <!-- Embed Google Form SPMB Resmi -->
+              <div class="w-full rounded-xl overflow-hidden border border-garis bg-kanvas flex justify-center py-2 sm:py-4">
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSddsHgz4f42FK8_M6NAAK5EU1HMdLKA6n_1WPP7rc-u5hSHuA/viewform?embedded=true"
+                  title="Formulir SPMB PAUD Kasih Ibu"
+                  width="700"
+                  height="520"
+                  frameborder="0"
+                  marginheight="0"
+                  marginwidth="0"
+                  class="w-full max-w-[700px] min-h-[520px] sm:min-h-[680px] border-0"
+                >Memuat…</iframe>
               </div>
             </div>
           </section>
         </div>
       `;
-    }
-
-    function toggleFormPreviewMode() {
-      const sim = document.getElementById('simulated-gform');
-      const real = document.getElementById('real-gform-iframe');
-      const btn = document.getElementById('toggle-form-btn');
-      const isSimVisible = !sim.classList.contains('hidden');
-      if (isSimVisible) {
-        sim.classList.add('hidden');
-        real.classList.remove('hidden');
-        btn.textContent = 'Kembali ke Pratinjau Isian';
-      } else {
-        sim.classList.remove('hidden');
-        real.classList.add('hidden');
-        btn.textContent = 'Lihat Tampilan Iframe Google Form';
-      }
-    }
-
-    function handleSimulatedFormSubmit(e) {
-      e.preventDefault();
-      e.target.classList.add('hidden');
-      document.getElementById('simulated-gform-success').classList.remove('hidden');
     }
 
     /**
